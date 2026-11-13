@@ -1,0 +1,104 @@
+{
+  "definitions": [
+    {
+      "title": "Carousel Expanding",
+      "id": "carousel-expanding",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Carousel Expanding",
+              "model": "carousel-expanding",
+              "filter": "carousel-expanding"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Carousel Expanding Item",
+      "id": "carousel-expanding-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Carousel Expanding Item",
+              "model": "carousel-expanding-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "carousel-expanding",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Options",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Alt",
+              "value": "alt"
+            },
+            {
+              "name": "Alt 2",
+              "value": "alt-2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carousel-expanding-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt",
+          "value": ""
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "video",
+          "label": "Video URL (optional)",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Text",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "carousel-expanding",
+      "components": [
+        "carousel-expanding-item"
+      ]
+    }
+  ]
+}

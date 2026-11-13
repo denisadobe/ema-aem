@@ -1,0 +1,22 @@
+{
+  "variantName": "video-promo",
+  "baseBlock": "video",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "video"
+  },
+  "contentPattern": "Row with the video source as a link or URL text (MP4/WebM, YouTube or Vimeo), optional row with a placeholder/poster picture. Without a placeholder the video autoplays muted and looped when in view (controls instead under reduced motion); with a placeholder a play button loads the video with controls.",
+  "options": [
+    { "class": "image-dark-purple", "label": "Image Dark Purple" }
+  ],
+  "memberVariantIds": [
+    "v_5721249ea25c",
+    "v_7a9b7779b319"
+  ],
+  "usage": "Promotional product / campaign video in a rounded frame (silent looping app demos), or a poster image with play button inside a dark purple frame.",
+  "reuseGuidance": "Use for self-hosted promo or demo videos. Use 'image-dark-purple' for a poster image with play button inside a thick colored frame. For YouTube player embeds with title bar use embed-video."
+}

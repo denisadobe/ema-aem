@@ -1,0 +1,37 @@
+/*
+ * Notice - bordered legal note box.
+ * Values from source computed styles (nubank.com.br contract table: 1px #efefef
+ * collapsed border, 12px cell padding, 22px bottom margin, text 22px/1.3 desktop,
+ * 18px/1.3 mobile, letter-spacing -0.02em, paragraph margin 0 0 1em kept on the
+ * last paragraph too).
+ */
+.notice {
+  margin: 0 0 22px;
+  padding: 12px;
+  border: 1px solid rgb(239 239 239);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--nu-black);
+  font-family: var(--nu-body-font-family);
+  font-size: var(--nu-body-l);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.notice .notice-content {
+  display: block;
+}
+
+.notice .notice-text p {
+  margin: 0 0 1em;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.notice .notice-text strong,
+.notice .notice-text b {
+  font-weight: 700;
+}

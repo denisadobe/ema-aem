@@ -1,0 +1,407 @@
+/* carousel-blog: blog teaser carousel (intro heading + CTA, overlay article cards, arrow nav) */
+.carousel-blog {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: rgb(0 0 0);
+}
+
+/* intro: heading + CTA, navigation is placed by the block layout */
+.carousel-blog .carousel-blog-intro {
+  display: contents;
+}
+
+.carousel-blog .carousel-blog-intro > div:not(.carousel-blog-navigation) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.carousel-blog .carousel-blog-intro > div > * {
+  margin: 0;
+}
+
+main .carousel-blog .carousel-blog-intro h2 {
+  margin: 0;
+  font-family: var(--nu-heading-font-family);
+  font-size: var(--nu-heading-xxl);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -1.2px;
+  color: var(--nu-ink);
+}
+
+/* intro CTA: purple pill with arrow */
+main .carousel-blog .carousel-blog-intro a.button:any-link {
+  min-height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: normal;
+}
+
+main .carousel-blog .button-container a.button:any-link::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 2px;
+  padding: 0;
+  float: none;
+  color: inherit;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 17.5 17.5 6.5M8 6.5h9.5V16' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* slides */
+.carousel-blog .carousel-blog-slides-container {
+  position: relative;
+  order: 1;
+  min-width: 0;
+
+  /* bleed the track to the right viewport edge, like the source */
+  margin-right: calc(-1 * max(var(--nu-gutter), (100vw - var(--nu-content-max-width)) / 2));
+}
+
+.carousel-blog .carousel-blog-slides,
+.carousel-blog .carousel-blog-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-blog .carousel-blog-slides {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel-blog .carousel-blog-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-blog .carousel-blog-slide {
+  position: relative;
+  flex: 0 0 calc(100% - var(--nu-gutter) - 9px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 443px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* default: text overlaid on a full-bleed background image */
+.carousel-blog .carousel-blog-slide-image {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-blog .carousel-blog-slide-image p {
+  height: 100%;
+  margin: 0;
+}
+
+.carousel-blog .carousel-blog-slide-image picture,
+.carousel-blog .carousel-blog-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-blog:not(.image-above-text, .image-above-text-2) .carousel-blog-slide-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 80%) 80%);
+}
+
+.carousel-blog .carousel-blog-slide-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+}
+
+.carousel-blog:not(.image-above-text, .image-above-text-2) .carousel-blog-slide-content > * {
+  margin: 0;
+}
+
+/* overlay card typography */
+main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content p {
+  font-family: var(--nu-body-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
+  color: var(--nu-white);
+}
+
+main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content h6 {
+  font-family: var(--nu-heading-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 26.4px;
+  letter-spacing: -0.7px;
+  color: var(--nu-white);
+}
+
+/* "Leia aqui": lilac outline pill */
+main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content a.button:any-link {
+  min-height: 56px;
+  padding: 0 32px;
+  border: 0;
+  background-color: rgb(255 255 255 / 0%);
+  box-shadow: var(--nu-lilac) 0 0 0 1px inset;
+  color: var(--nu-lilac);
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: normal;
+}
+
+main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content a.button:hover,
+main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content a.button:focus-visible {
+  background-color: rgb(236 223 255 / 10%);
+  color: var(--nu-white);
+}
+
+/* navigation */
+.carousel-blog .carousel-blog-navigation {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-blog .carousel-blog-indicators {
+  display: none;
+  gap: 8px;
+}
+
+.carousel-blog .carousel-blog-indicator button {
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+}
+
+.carousel-blog .carousel-blog-prev,
+.carousel-blog .carousel-blog-next {
+  position: relative;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid rgb(255 255 255 / 0%);
+  border-radius: var(--nu-radius-pill);
+  background-color: var(--nu-purple);
+  color: var(--nu-white);
+  cursor: pointer;
+}
+
+.carousel-blog .carousel-blog-prev:disabled,
+.carousel-blog .carousel-blog-next:disabled {
+  border-color: rgb(0 0 0 / 0%);
+  background-color: rgb(141 13 227 / 20%);
+  color: rgb(141 13 227 / 20%);
+  opacity: 0.6;
+  cursor: default;
+}
+
+.carousel-blog .carousel-blog-prev:focus-visible,
+.carousel-blog .carousel-blog-next:focus-visible {
+  outline: 2px solid var(--nu-purple);
+  outline-offset: 2px;
+}
+
+.carousel-blog .carousel-blog-prev::after,
+.carousel-blog .carousel-blog-next::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  width: 9px;
+  height: 9px;
+  border: 2px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-blog .carousel-blog-next::after {
+  left: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* image-above-text / image-above-text-2: stacked card, image on top */
+.carousel-blog.image-above-text .carousel-blog-slide,
+.carousel-blog.image-above-text-2 .carousel-blog-slide {
+  justify-content: flex-start;
+  min-height: 0;
+  padding: 24px;
+  gap: 24px;
+}
+
+.carousel-blog.image-above-text .carousel-blog-slide-image,
+.carousel-blog.image-above-text-2 .carousel-blog-slide-image {
+  position: static;
+  aspect-ratio: 345 / 180;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-blog.image-above-text .carousel-blog-slide-content,
+.carousel-blog.image-above-text-2 .carousel-blog-slide-content {
+  flex: 1;
+  gap: 0;
+  padding: 0;
+}
+
+.carousel-blog.image-above-text .carousel-blog-slide-content > :last-child,
+.carousel-blog.image-above-text-2 .carousel-blog-slide-content > :last-child {
+  margin-top: auto;
+}
+
+/* alt: color-scheme hook (dark/brand background) */
+.carousel-blog.alt {
+  padding-block: 48px;
+}
+
+/* text-only rows (purple control strip, purple-2 tab bar) */
+.carousel-blog.is-text-only .carousel-blog-slides-container {
+  margin-right: 0;
+}
+
+.carousel-blog.is-text-only .carousel-blog-slide {
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: visible;
+  border-radius: 0;
+}
+
+.carousel-blog.is-text-only .carousel-blog-slide-content {
+  padding: 8px 16px;
+}
+
+/* purple: control strip, navigation aligned to the end */
+.carousel-blog.purple .carousel-blog-navigation {
+  justify-content: flex-end;
+}
+
+/* purple-2: horizontal pill tab bar */
+.carousel-blog.purple-2 .carousel-blog-slides {
+  gap: 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border: 2px solid currentcolor;
+  border-radius: 999px;
+}
+
+.carousel-blog.purple-2 .carousel-blog-slide {
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.carousel-blog.purple-2 .carousel-blog-navigation {
+  display: none;
+}
+
+@media (width >= 900px) {
+  .carousel-blog:has(> .carousel-blog-intro) {
+    display: grid;
+    grid-template-columns: minmax(0, 444px) minmax(0, 1fr);
+    gap: 24px 16px;
+    align-items: center;
+  }
+
+  .carousel-blog .carousel-blog-intro > div:not(.carousel-blog-navigation) {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 40px;
+    padding-right: 32px;
+  }
+
+  .carousel-blog:has(> .carousel-blog-intro) .carousel-blog-slides-container {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .carousel-blog:has(> .carousel-blog-intro) .carousel-blog-navigation {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-end;
+  }
+
+  main .carousel-blog .carousel-blog-intro a.button:any-link {
+    min-height: 56px;
+    padding: 0 32px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .carousel-blog .carousel-blog-slides {
+    gap: 16px;
+  }
+
+  .carousel-blog.is-single:not(.is-text-only) .carousel-blog-slides {
+    justify-content: flex-end;
+  }
+
+  .carousel-blog .carousel-blog-slide {
+    flex: 0 0 400px;
+    min-height: 520px;
+  }
+
+  .carousel-blog .carousel-blog-slide-content {
+    padding: 32px 40px;
+  }
+
+  main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content p {
+    font-size: 22px;
+    line-height: 26.4px;
+  }
+
+  main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content h6 {
+    font-size: 34px;
+    line-height: 37.4px;
+  }
+
+  main .carousel-blog:not(.image-above-text, .image-above-text-2, .is-text-only) .carousel-blog-slide-content a.button:any-link {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .carousel-blog.image-above-text .carousel-blog-slide,
+  .carousel-blog.image-above-text-2 .carousel-blog-slide {
+    flex-basis: 393px;
+    min-height: 396px;
+  }
+
+  .carousel-blog.image-above-text .carousel-blog-slide-content,
+  .carousel-blog.image-above-text-2 .carousel-blog-slide-content {
+    padding: 0;
+  }
+
+  .carousel-blog.is-text-only .carousel-blog-slide {
+    flex-basis: auto;
+    min-height: 0;
+  }
+
+  .carousel-blog.is-text-only .carousel-blog-slide-content {
+    padding: 8px 16px;
+  }
+}

@@ -1,0 +1,74 @@
+/*
+ * Nubank brand tokens, measured on https://nubank.com.br/ (1440px and 390px).
+ * Consumed by styles.css (which maps them onto the boilerplate variables) and blocks.
+ */
+
+:root {
+  /* brand palette */
+  --nu-purple: #8d0de3;
+  --nu-purple-dark: #5d0599;
+  --nu-ink: #1e002f;
+  --nu-cream: #f3efe6;
+  --nu-beige: #f3efe6;
+  --nu-lilac: #ecdfff;
+  --nu-light-grey: #f4f4f4;
+  --nu-light-yellow: #eeedb3;
+  --nu-black: #000;
+  --nu-white: #fff;
+
+  /* boilerplate brand hooks (read by styles.css :root) */
+  --brand-background-color: var(--nu-white);
+  --brand-text-color: var(--nu-black);
+  --brand-dark-color: var(--nu-ink);
+  --brand-light-color: var(--nu-light-grey);
+  --brand-light-text-color: var(--nu-cream);
+  --brand-link-color: var(--nu-purple);
+  --brand-link-hover-color: var(--nu-purple-dark);
+  --brand-theme-color: var(--nu-purple);
+  --brand-nav-background-color: var(--nu-white);
+  --brand-nav-text-color: var(--nu-ink);
+  --brand-footer-background-color: var(--nu-ink);
+  --brand-footer-text-color: var(--nu-cream);
+
+  /* fonts: nuSans is self-hosted by Nubank without CORS, so the metric-matched
+     Arial fallbacks the source declares are what renders until the fonts are hosted here */
+  --nu-heading-font-family: nusansdisplay, 'nuSansDisplay Fallback', arial, helvetica, sans-serif;
+  --nu-body-font-family: nusanstext, 'nuSansText Fallback', arial, helvetica, sans-serif;
+  --heading-color: var(--nu-ink);
+
+  /* type scale (mobile first) */
+  --nu-heading-xxl: 36px;
+  --nu-heading-xl: 36px;
+  --nu-heading-l: 28px;
+  --nu-heading-m: 20px;
+  --nu-heading-s: 18px;
+  --nu-heading-xs: 16px;
+  --nu-body-l: 18px;
+  --nu-body-m: 16px;
+  --nu-body-s: 14px;
+
+  /* layout */
+  --nu-content-max-width: 1264px;
+  --nu-gutter: 24px;
+  --nu-section-padding: 64px;
+  --nu-radius-pill: 999px;
+  --nu-radius-card: 24px;
+  --nu-button-height: 56px;
+  --nav-height: 64px;
+}
+
+@media (width >= 900px) {
+  :root {
+    --nu-heading-xxl: 72px;
+    --nu-heading-xl: 64px;
+    --nu-heading-l: 36px;
+    --nu-heading-m: 22px;
+    --nu-heading-s: 20px;
+    --nu-heading-xs: 18px;
+    --nu-body-l: 22px;
+    --nu-body-m: 18px;
+    --nu-body-s: 16px;
+    --nu-gutter: 88px;
+    --nu-section-padding: 120px;
+  }
+}

@@ -1,0 +1,21 @@
+# steps
+
+Custom **custom** block. 
+
+## Authoring (Document Authoring)
+
+Model: `standalone`
+
+Single block table. Content: one row, one cell of content.
+
+## Supported variations
+
+| Variation | Option class |
+| --- | --- |
+| Tinted | `tinted` |
+| Dark | `dark` |
+
+## Universal Editor fields
+
+- Content fields derived from the block's decorate contract.
+- `classes` select for options: Tinted, Dark.

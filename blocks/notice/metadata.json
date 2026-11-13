@@ -1,0 +1,19 @@
+{
+  "variantName": "notice",
+  "baseBlock": "custom",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "table"
+  },
+  "contentPattern": "One row with a single rich-text cell (bold note title paragraph, bold sub-title, body paragraph). Extra rows/cells are appended in order into the same bordered box.",
+  "options": [],
+  "memberVariantIds": [
+    "v_4dc3532c4404"
+  ],
+  "usage": "Bordered consumer note / disclaimer box (e.g. product-in-testing notice with a terms-of-awareness text).",
+  "reuseGuidance": "Use for short legal notes, disclaimers or consumer warnings that must stand out from body text inside a thin bordered box. For long legal text without a box use default content."
+}

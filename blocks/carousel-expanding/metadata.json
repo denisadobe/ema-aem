@@ -1,0 +1,50 @@
+{
+  "variantName": "carousel-expanding",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "image + text + link"
+  },
+  "contentPattern": {
+    "summary": "One item row per slide. Cells: image | optional video URL | rich text. All slides sit in a horizontal row; the active slide expands to full width and reveals its text below the media, others stay as narrow image strips. Hover, click or focus activates a slide.",
+    "rows": [
+      {
+        "row": "slide (repeating)",
+        "cells": [
+          "image (poster when a video is set)",
+          "video URL (optional, mp4/DAM link)",
+          "rich text: optional heading, description paragraph, optional link"
+        ]
+      }
+    ]
+  },
+  "options": [
+    {
+      "class": "alt",
+      "label": "Alt"
+    },
+    {
+      "class": "alt-2",
+      "label": "Alt 2"
+    }
+  ],
+  "memberVariantIds": [
+    "v_fdcfbabcbfce",
+    "v_97d9309ceca5",
+    "v_a6cc4fb31035",
+    "v_3c5d0f07d1f1"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/nu/cartao"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T23:25:00Z"
+  },
+  "reuseGuidance": "Use for accordion-like horizontal galleries where the focused item widens. Options: alt (bottom-aligned media of varying height, active slide is tallest), alt-2 (same layout with video slides). For centered auto-advancing cards use carousel-coverflow.",
+  "usageDescription": "Expanding image-strip gallery: feature highlights (heading + description, optional Saiba mais link) and speaker galleries (name, role, LinkedIn link)."
+}

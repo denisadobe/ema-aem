@@ -1,0 +1,412 @@
+/*
+ * hero-signup: values measured on https://nubank.com.br/nu/cartao (390px, 768-1440px).
+ * Default look: split hero (image left, eyebrow + h1 + text + CPF sign-up card right);
+ * on mobile the image sits between the heading and the description.
+ */
+.hero-signup-container .hero-signup-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-signup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  /* top padding = source header clearance (56px nav + 48px product bar) + 48px */
+  padding: 152px 24px 48px;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+/* media */
+.hero-signup .hero-signup-media {
+  position: relative;
+  min-width: 0;
+  margin-top: 24px;
+}
+
+.hero-signup .hero-signup-media picture,
+.hero-signup .hero-signup-media img,
+.hero-signup .hero-signup-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-signup .hero-signup-media img,
+.hero-signup .hero-signup-media video {
+  aspect-ratio: 6 / 5;
+  object-fit: cover;
+}
+
+/* content column */
+.hero-signup .hero-signup-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hero-signup .hero-signup-text > * {
+  margin: 24px 0 0;
+}
+
+.hero-signup .hero-signup-text > :first-child {
+  margin-top: 0;
+}
+
+.hero-signup .hero-signup-text p {
+  font-family: var(--nu-body-font-family);
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.25px;
+  color: inherit;
+}
+
+.hero-signup .hero-signup-text p.hero-signup-eyebrow {
+  min-height: 28px;
+  margin: 0;
+  font-family: var(--nu-heading-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.7px;
+  color: var(--link-color);
+}
+
+.hero-signup .hero-signup-text h1,
+.hero-signup .hero-signup-text h2 {
+  margin-top: 8px;
+  font-family: var(--nu-heading-font-family);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -1.2px;
+  color: var(--heading-color);
+}
+
+.hero-signup .hero-signup-text > h1:first-child,
+.hero-signup .hero-signup-text > h2:first-child {
+  margin-top: 0;
+}
+
+/* mobile: eyebrow + heading, then image, then description + form */
+.hero-signup:not([class*='background-image'], .hero-signup-no-media) .hero-signup-content,
+.hero-signup:not([class*='background-image'], .hero-signup-no-media) .hero-signup-text {
+  display: contents;
+}
+
+.hero-signup:not([class*='background-image'], .hero-signup-no-media) .hero-signup-eyebrow,
+.hero-signup:not([class*='background-image'], .hero-signup-no-media) .hero-signup-text > :is(h1, h2) {
+  order: -1;
+}
+
+/* sign-up card */
+.hero-signup .hero-signup-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 416px;
+  margin: 24px 0 0;
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: var(--nu-cream);
+  box-shadow: inset 0.5px 0 2px 0 var(--nu-white), inset 0 0.5px 2px 0 var(--nu-white);
+  color: var(--nu-black);
+}
+
+.hero-signup .hero-signup-form-title {
+  margin: 0;
+  padding: 0 8px;
+  font-family: var(--nu-body-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--nu-black);
+}
+
+.hero-signup .hero-signup-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+main .hero-signup input.hero-signup-input {
+  display: block;
+  width: 100%;
+  height: 56px;
+  min-height: 56px;
+  margin: 0;
+  padding: 0 40px 0 22px;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: var(--nu-white);
+  color: var(--nu-black);
+  font-family: var(--nu-body-font-family);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+main .hero-signup input.hero-signup-input::placeholder {
+  color: rgb(82 82 93);
+  font-size: 18px;
+  letter-spacing: -0.25px;
+  opacity: 1;
+}
+
+main .hero-signup input.hero-signup-input:focus-visible {
+  border-color: var(--nu-purple);
+  outline: none;
+}
+
+main .hero-signup button.hero-signup-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  margin: 0;
+  padding: 0 28px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: var(--nu-radius-pill);
+  background-color: var(--nu-purple);
+  color: var(--nu-white);
+  font-family: var(--nu-body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* chevron-right (source uses an icon font glyph, 20px box) */
+main .hero-signup button.hero-signup-submit::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+main .hero-signup button.hero-signup-submit:hover {
+  background-color: var(--nu-purple-dark);
+}
+
+main .hero-signup button.hero-signup-submit:focus-visible {
+  outline: 2px solid var(--nu-purple);
+  outline-offset: 2px;
+}
+
+/* background-image family: media fills the block, content overlays it */
+.hero-signup[class*='background-image'] {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  min-height: 560px;
+  isolation: isolate;
+}
+
+.hero-signup[class*='background-image'] .hero-signup-media {
+  position: absolute;
+  grid-area: auto;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.hero-signup[class*='background-image'] .hero-signup-media picture,
+.hero-signup[class*='background-image'] .hero-signup-media img,
+.hero-signup[class*='background-image'] .hero-signup-media video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.hero-signup[class*='background-image'] .hero-signup-content {
+  gap: 24px;
+}
+
+/* purple: text + form first, image after */
+.hero-signup.purple .hero-signup-content {
+  order: -1;
+}
+
+@media (width >= 900px) {
+  .hero-signup {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 32px;
+    align-items: center;
+    padding: 184px 24px 80px;
+  }
+
+  .hero-signup .hero-signup-media {
+    grid-column: 1 / span 6;
+    margin-top: 0;
+
+    /* source: 555px image overhangs its 534px grid cell */
+    margin-bottom: -21px;
+  }
+
+  .hero-signup .hero-signup-media img,
+  .hero-signup .hero-signup-media video {
+    height: 555px;
+    aspect-ratio: auto;
+  }
+
+  .hero-signup .hero-signup-content {
+    grid-column: 7 / -1;
+  }
+
+  .hero-signup:not([class*='background-image'], .hero-signup-no-media) .hero-signup-content {
+    display: flex;
+  }
+
+  .hero-signup:not([class*='background-image'], .hero-signup-no-media) .hero-signup-text {
+    display: block;
+  }
+
+  .hero-signup.hero-signup-no-media .hero-signup-content {
+    grid-column: 1 / -1;
+  }
+
+  .hero-signup.purple .hero-signup-content {
+    grid-row: 1;
+    grid-column: 1 / span 6;
+  }
+
+  .hero-signup.purple .hero-signup-media {
+    grid-row: 1;
+    grid-column: 7 / -1;
+  }
+
+  /* fluid type 768-1200px, as on the source */
+  .hero-signup .hero-signup-text p.hero-signup-eyebrow {
+    font-size: clamp(24px, calc(24px + (100vw - 768px) * 4 / 432), 28px);
+  }
+
+  .hero-signup .hero-signup-text h1,
+  .hero-signup .hero-signup-text h2 {
+    font-size: clamp(36px, calc(36px + (100vw - 768px) * 12 / 432), 48px);
+  }
+
+  .hero-signup .hero-signup-text p {
+    font-size: clamp(18px, calc(18px + (100vw - 768px) * 1 / 432), 19px);
+  }
+
+  .hero-signup .hero-signup-form-title {
+    font-size: clamp(20px, calc(20px + (100vw - 768px) * 1 / 432), 21px);
+  }
+
+  main .hero-signup input.hero-signup-input {
+    font-size: clamp(16px, calc(16px + (100vw - 768px) * 1 / 432), 17px);
+  }
+
+  main .hero-signup input.hero-signup-input::placeholder {
+    font-size: clamp(18px, calc(18px + (100vw - 768px) * 1 / 432), 19px);
+  }
+
+  main .hero-signup button.hero-signup-submit {
+    font-size: clamp(16px, calc(16px + (100vw - 768px) * 2 / 432), 18px);
+  }
+
+  .hero-signup[class*='background-image'] {
+    grid-template-columns: 1fr;
+    min-height: 720px;
+    padding-left: max(32px, calc((100% - 1264px) / 2));
+    padding-right: max(32px, calc((100% - 1264px) / 2));
+  }
+
+  .hero-signup[class*='background-image'] .hero-signup-content {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-signup[class*='background-image'] .hero-signup-text {
+    flex: 0 1 50%;
+  }
+
+  .hero-signup[class*='background-image'] .hero-signup-form {
+    flex: 0 0 416px;
+    margin-top: 0;
+  }
+
+  .hero-signup.background-image-2 .hero-signup-content {
+    align-items: flex-end;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero-signup {
+    column-gap: 80px;
+    padding: 192px 88px 80px;
+  }
+
+  .hero-signup .hero-signup-media {
+    grid-column: 1 / span 7;
+  }
+
+  .hero-signup .hero-signup-content {
+    grid-column: 8 / -1;
+  }
+
+  .hero-signup.purple .hero-signup-content {
+    grid-column: 1 / span 5;
+  }
+
+  .hero-signup.purple .hero-signup-media {
+    grid-column: 6 / -1;
+  }
+
+  /* fluid type 1200-1440px */
+  .hero-signup .hero-signup-text p.hero-signup-eyebrow {
+    font-size: clamp(28px, calc(28px + (100vw - 1200px) * 6 / 240), 34px);
+  }
+
+  .hero-signup .hero-signup-text h1,
+  .hero-signup .hero-signup-text h2 {
+    font-size: clamp(48px, calc(48px + (100vw - 1200px) * 24 / 240), 72px);
+  }
+
+  .hero-signup .hero-signup-text p {
+    font-size: clamp(19px, calc(19px + (100vw - 1200px) * 2 / 240), 21px);
+  }
+
+  .hero-signup .hero-signup-form-title {
+    font-size: clamp(21px, calc(21px + (100vw - 1200px) * 1 / 240), 22px);
+  }
+
+  main .hero-signup input.hero-signup-input {
+    font-size: clamp(17px, calc(17px + (100vw - 1200px) * 1 / 240), 18px);
+  }
+
+  main .hero-signup input.hero-signup-input::placeholder {
+    font-size: clamp(19px, calc(19px + (100vw - 1200px) * 2 / 240), 21px);
+  }
+
+  main .hero-signup button.hero-signup-submit {
+    font-size: clamp(18px, calc(18px + (100vw - 1200px) * 2 / 240), 20px);
+  }
+
+  .hero-signup[class*='background-image'] .hero-signup-content {
+    grid-column: 1 / -1;
+  }
+}

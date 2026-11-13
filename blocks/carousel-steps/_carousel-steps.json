@@ -1,0 +1,109 @@
+{
+  "definitions": [
+    {
+      "title": "Carousel Steps",
+      "id": "carousel-steps",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Carousel Steps",
+              "model": "carousel-steps",
+              "filter": "carousel-steps"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Carousel Steps Item",
+      "id": "carousel-steps-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Carousel Steps Item",
+              "model": "carousel-steps-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "carousel-steps",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Options",
+          "valueType": "string",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "Light Grey Purple", "value": "light-grey-purple" },
+            { "name": "Vertical 2", "value": "vertical-2" },
+            { "name": "Orange Grey Purple", "value": "orange-grey-purple" },
+            { "name": "Vertical", "value": "vertical" },
+            { "name": "Vertical Purple Light", "value": "vertical-purple-light" }
+          ]
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "intro",
+          "value": "",
+          "label": "Intro (heading)"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "cta",
+          "value": "",
+          "label": "Call to Action (text, app badges or button)"
+        }
+      ]
+    },
+    {
+      "id": "carousel-steps-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "media_image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "media_imageAlt",
+          "value": "",
+          "label": "Image Alt"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "media_video",
+          "label": "Video URL"
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "content_text",
+          "value": "",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "carousel-steps",
+      "components": ["carousel-steps-item"]
+    }
+  ]
+}

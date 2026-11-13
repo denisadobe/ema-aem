@@ -1,0 +1,542 @@
+/*
+ * carousel-steps
+ * Values measured on https://nubank.com.br/nu/nucel ("app steps", default) and
+ * https://nubank.com.br/ ("card showcase", vertical options) at 1440px and 390px.
+ */
+
+/* ---------- default: app steps (heading, step text, phone video, dots) ---------- */
+
+.carousel-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'intro'
+    'media'
+    'text'
+    'controls'
+    'cta';
+  row-gap: 24px;
+}
+
+/* slides list and items do not create boxes: their cells join the block grid */
+.carousel-steps .carousel-steps-slides,
+.carousel-steps .carousel-steps-slide {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-steps .carousel-steps-slide[aria-hidden='true'] > * {
+  display: none;
+}
+
+.carousel-steps .carousel-steps-intro {
+  grid-area: intro;
+}
+
+.carousel-steps .carousel-steps-intro > :last-child,
+.carousel-steps .carousel-steps-slide-content > :last-child,
+.carousel-steps .carousel-steps-cta > :last-child {
+  margin-bottom: 0;
+}
+
+.carousel-steps .carousel-steps-slide-media {
+  grid-area: media;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.carousel-steps .carousel-steps-slide-content {
+  grid-area: text;
+}
+
+/* step text and app prompt: 18px / 22px, line-height 1.3 */
+.carousel-steps .carousel-steps-slide-content p,
+.carousel-steps .carousel-steps-cta p {
+  font-size: var(--nu-body-l);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.carousel-steps .carousel-steps-controls {
+  grid-area: controls;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.carousel-steps .carousel-steps-cta {
+  grid-area: cta;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.carousel-steps .carousel-steps-cta p {
+  margin: 0;
+}
+
+.carousel-steps .carousel-steps-intro.is-empty,
+.carousel-steps .carousel-steps-cta.is-empty {
+  display: none;
+}
+
+.carousel-steps .carousel-steps-intro > :first-child,
+.carousel-steps .carousel-steps-slide-content > :first-child,
+.carousel-steps .carousel-steps-cta > :first-child {
+  margin-top: 0;
+}
+
+.carousel-steps .carousel-steps-slide-media p {
+  margin: 0;
+}
+
+.carousel-steps .carousel-steps-slide-media picture,
+.carousel-steps .carousel-steps-slide-media img,
+.carousel-steps .carousel-steps-slide-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-steps .carousel-steps-slide-media p:has(> picture) {
+  height: 100%;
+}
+
+/* cta: inline store badges / buttons */
+.carousel-steps .carousel-steps-cta p:has(> a + a),
+.carousel-steps .carousel-steps-cta p:has(> picture + picture) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* dots */
+.carousel-steps .carousel-steps-dots {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 16px;
+}
+
+.carousel-steps .carousel-steps-dot {
+  width: 6px;
+  height: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: rgb(143 143 154);
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.carousel-steps .carousel-steps-dot.active {
+  background-color: var(--nu-purple);
+  opacity: 1;
+}
+
+/* pause / play toggle and arrows */
+.carousel-steps .carousel-steps-toggle,
+.carousel-steps .carousel-steps-prev,
+.carousel-steps .carousel-steps-next {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--nu-radius-pill);
+  cursor: pointer;
+}
+
+.carousel-steps .carousel-steps-toggle {
+  width: 36px;
+  height: 36px;
+  background-color: rgb(255 255 255 / 60%);
+  color: var(--nu-purple);
+}
+
+.carousel-steps .carousel-steps-toggle[hidden] {
+  display: none;
+}
+
+.carousel-steps .carousel-steps-toggle::before,
+.carousel-steps .carousel-steps-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  height: 12px;
+  border-radius: 1px;
+  background: currentcolor;
+  transform: translateY(-50%);
+}
+
+.carousel-steps .carousel-steps-toggle::before {
+  left: calc(50% - 5px);
+}
+
+.carousel-steps .carousel-steps-toggle::after {
+  left: calc(50% + 2px);
+}
+
+.carousel-steps[data-playing='false'] .carousel-steps-toggle::before {
+  left: calc(50% - 4px);
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  background: none;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent currentcolor;
+}
+
+.carousel-steps[data-playing='false'] .carousel-steps-toggle::after {
+  display: none;
+}
+
+.carousel-steps .carousel-steps-prev,
+.carousel-steps .carousel-steps-next {
+  width: 44px;
+  height: 44px;
+  background-color: var(--nu-purple);
+  color: var(--nu-white);
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel-steps .carousel-steps-prev:disabled,
+.carousel-steps .carousel-steps-next:disabled {
+  background-color: rgb(141 13 227 / 20%);
+  color: rgb(141 13 227 / 20%);
+  opacity: 0.6;
+  cursor: default;
+}
+
+.carousel-steps .carousel-steps-prev:focus-visible,
+.carousel-steps .carousel-steps-next:focus-visible,
+.carousel-steps .carousel-steps-toggle:focus-visible,
+.carousel-steps .carousel-steps-dot:focus-visible {
+  outline: 2px solid var(--nu-purple);
+  outline-offset: 2px;
+}
+
+/* chevrons: left / right on mobile, up / down on desktop */
+.carousel-steps .carousel-steps-prev::after,
+.carousel-steps .carousel-steps-next::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-25%, -50%) rotate(-135deg);
+}
+
+.carousel-steps .carousel-steps-next::after {
+  transform: translate(-75%, -50%) rotate(45deg);
+}
+
+/* ---------- vertical options: card showcase ---------- */
+
+.carousel-steps.is-vertical {
+  grid-template-areas: none;
+  row-gap: 0;
+}
+
+.carousel-steps.is-vertical .carousel-steps-dots {
+  display: none;
+}
+
+/* mobile: heading, card deck, text, button, arrows (cell children join the grid) */
+.carousel-steps.is-vertical .carousel-steps-intro {
+  grid-area: auto;
+  order: 0;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-content {
+  display: contents;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-content > * {
+  order: 3;
+  margin: 32px 0 0;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-content > :is(h1, h2, h3, h4, h5, h6):first-child {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-content > .button-container {
+  margin-top: 16px;
+}
+
+.carousel-steps.is-vertical .carousel-steps-controls {
+  grid-area: auto;
+  order: 4;
+  justify-content: flex-start;
+  padding: 32px 0 0;
+}
+
+.carousel-steps.is-vertical .carousel-steps-cta {
+  grid-area: auto;
+  order: 5;
+  margin-top: 32px;
+}
+
+.carousel-steps.is-vertical h1,
+.carousel-steps.is-vertical h2,
+.carousel-steps.is-vertical h3,
+.carousel-steps.is-vertical h4,
+.carousel-steps.is-vertical h5,
+.carousel-steps.is-vertical h6 {
+  margin: 0;
+  font-size: var(--nu-heading-xxl);
+  line-height: 1;
+  letter-spacing: -1.2px;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-content p {
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.25px;
+  color: var(--heading-color);
+}
+
+main .carousel-steps.is-vertical .button-container a.button:any-link {
+  padding: 0 24px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* card deck: every slide's media shares one cell; the next card peeks beside the active one */
+.carousel-steps.is-vertical .carousel-steps-slide-media {
+  grid-area: auto;
+  grid-row: 2;
+  grid-column: 1;
+  margin-top: 32px;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide[aria-hidden='true'] > .carousel-steps-slide-media {
+  display: block;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide.active > .carousel-steps-slide-media {
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-media > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(60%) scale(0.7);
+  transform-origin: left center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide-media img,
+.carousel-steps.is-vertical .carousel-steps-slide-media video {
+  object-fit: contain;
+  object-position: left center;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide.active > .carousel-steps-slide-media > * {
+  opacity: 1;
+  transform: none;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide.is-next > .carousel-steps-slide-media > * {
+  opacity: 1;
+}
+
+.carousel-steps.is-vertical .carousel-steps-slide.is-prev > .carousel-steps-slide-media > * {
+  transform: translateX(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-steps.is-vertical .carousel-steps-slide-media > * {
+    transition: none;
+  }
+}
+
+/* ---------- desktop ---------- */
+
+@media (width >= 900px) {
+  /* app steps: text column (5 of 12) beside a 6-column 6:7 video */
+  .carousel-steps {
+    grid-template: auto auto 1fr auto auto / repeat(12, minmax(0, 1fr));
+    gap: 0 16px;
+  }
+
+  .carousel-steps .carousel-steps-intro {
+    grid-column: 1 / 6;
+    grid-row: 1;
+  }
+
+  .carousel-steps .carousel-steps-slide-content {
+    grid-column: 1 / 6;
+    grid-row: 2;
+  }
+
+  .carousel-steps .carousel-steps-intro:not(.is-empty) + .carousel-steps-slides .carousel-steps-slide-content {
+    margin-top: 96px;
+  }
+
+  .carousel-steps .carousel-steps-controls {
+    grid-column: 1 / 5;
+    grid-row: 4;
+    margin-top: 32px;
+  }
+
+  .carousel-steps .carousel-steps-cta {
+    grid-column: 1 / 6;
+    grid-row: 5;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 50px;
+    text-align: left;
+  }
+
+  .carousel-steps .carousel-steps-cta p:has(> a + a),
+  .carousel-steps .carousel-steps-cta p:has(> picture + picture) {
+    justify-content: flex-start;
+  }
+
+  .carousel-steps .carousel-steps-slide-media {
+    grid-column: 7 / 13;
+    grid-row: 1 / -1;
+    align-self: center;
+    aspect-ratio: 6 / 7;
+  }
+
+  /* vertical: heading + text centred on the left, card column, arrows on the right */
+  .carousel-steps.is-vertical {
+    grid-template-rows: auto 1fr auto;
+    min-height: max(506px, calc(100svh - 64px - 2 * var(--nu-section-padding)));
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-intro {
+    grid-column: 1 / 6;
+    grid-row: 1;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .carousel-steps.is-vertical .carousel-steps-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    grid-column: 1 / 6;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-slide-content > *,
+  .carousel-steps.is-vertical .carousel-steps-slide-content > .button-container {
+    margin: 0;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-slide-content p {
+    font-size: 21px;
+  }
+
+  main .carousel-steps.is-vertical .button-container a.button:any-link {
+    padding: 0 32px;
+    font-size: 20px;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-cta {
+    grid-column: 1 / 6;
+    grid-row: 3;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-controls {
+    flex-direction: column;
+    grid-column: 12 / 13;
+    grid-row: 1 / -1;
+    place-self: center end;
+    padding: 0;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-prev::after {
+    transform: translate(-50%, -25%) rotate(-45deg);
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-next::after {
+    transform: translate(-50%, -75%) rotate(135deg);
+  }
+
+  /* the card column runs through the section padding so the next card peeks at the bottom */
+  .carousel-steps.is-vertical .carousel-steps-slide-media {
+    grid-column: 7 / 12;
+    grid-row: 1 / -1;
+    align-self: stretch;
+    margin: calc(-1 * var(--nu-section-padding)) 0;
+    aspect-ratio: auto;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-slide-media > * {
+    top: 50%;
+    width: min(100%, 506px);
+    height: auto;
+    aspect-ratio: 1;
+    transform: translateY(calc(50% + 52.8px)) scale(0.3696);
+    transform-origin: left top;
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-slide.active > .carousel-steps-slide-media > * {
+    transform: translateY(-50%);
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-slide.is-prev > .carousel-steps-slide-media > * {
+    transform: translateY(calc(-150% - 52.8px));
+  }
+
+  .carousel-steps.is-vertical .carousel-steps-slide-media img,
+  .carousel-steps.is-vertical .carousel-steps-slide-media video {
+    object-position: left top;
+  }
+}
+
+/* color-scheme option hooks */
+.carousel-steps.light-grey-purple,
+.carousel-steps.orange-grey-purple,
+.carousel-steps.vertical-2 {
+  color-scheme: light;
+}
+
+.carousel-steps.vertical-purple-light {
+  color-scheme: dark;
+}
+
+/* vertical: inactive slides keep only their card in the deck */
+.carousel-steps.is-vertical .carousel-steps-slide[aria-hidden='true'] > .carousel-steps-slide-content {
+  display: none;
+}
+
+/* an empty slide keeps the heading row so the arrows stay below the deck */
+.carousel-steps.is-vertical .carousel-steps-slide.active > .carousel-steps-slide-content:empty {
+  display: block;
+  grid-area: 1 / 1;
+}

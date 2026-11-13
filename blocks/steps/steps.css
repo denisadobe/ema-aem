@@ -1,0 +1,139 @@
+/*
+ * Steps - numbered steps panel with a vertical scroll-progress track.
+ * Values measured on nubank.com.br/uber and /contratos/* (1440px and 390px).
+ * The panel colour follows the section it sits in (as on the source);
+ * the tinted / dark options force a scheme regardless of section.
+ */
+.steps {
+  --steps-progress: 0;
+  --steps-bg: var(--nu-cream);
+  --steps-color: var(--nu-black);
+  --steps-track: #e4e4e4;
+  --steps-fill: var(--nu-purple);
+
+  display: flex;
+  gap: 24px;
+  padding: 40px 24px;
+  border-radius: 16px;
+  background-color: var(--steps-bg);
+  color: var(--steps-color);
+}
+
+.steps .steps-track {
+  flex: 0 0 2px;
+  align-self: stretch;
+  width: 2px;
+  background-color: var(--steps-track);
+}
+
+.steps .steps-track-fill {
+  width: 100%;
+  height: calc(var(--steps-progress) * 100%);
+  background-color: var(--steps-fill);
+  transition: height 0.1s linear;
+}
+
+.steps .steps-list {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps .steps-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 32px;
+  margin: 0;
+}
+
+.steps .steps-number {
+  font-family: var(--nu-heading-font-family);
+  font-size: var(--nu-heading-l);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.steps .steps-body {
+  min-width: 0;
+}
+
+main .steps .steps-body p {
+  margin: 0;
+  color: inherit;
+  font-family: var(--nu-body-font-family);
+  font-size: var(--nu-body-l);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* panel colour by section context (source pairings) */
+main .section.lilac .steps {
+  --steps-bg: #d6b9fe;
+}
+
+main .section.beige .steps,
+main .section.light-grey .steps,
+main .section.light-yellow .steps {
+  --steps-bg: var(--nu-white);
+  --steps-fill: #714f8f;
+}
+
+main .section.purple .steps,
+main .section.dark-purple .steps {
+  --steps-bg: var(--nu-purple-dark);
+  --steps-color: var(--nu-cream);
+  --steps-track: var(--nu-purple-dark);
+  --steps-fill: var(--nu-purple);
+}
+
+/* explicit options win over section context */
+main .section .steps.tinted {
+  --steps-bg: #d6b9fe;
+  --steps-color: var(--nu-black);
+  --steps-track: #e4e4e4;
+  --steps-fill: var(--nu-purple);
+}
+
+main .section .steps.dark {
+  --steps-bg: var(--nu-purple-dark);
+  --steps-color: var(--nu-cream);
+  --steps-track: var(--nu-purple-dark);
+  --steps-fill: var(--nu-purple);
+}
+
+@media (width >= 768px) {
+  .steps .steps-list {
+    gap: 64px;
+  }
+}
+
+@media (width >= 900px) {
+  .steps {
+    gap: 32px;
+    padding: 64px;
+  }
+
+  .steps .steps-item {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .steps .steps-number {
+    flex: 0 0 91px;
+    width: 91px;
+    max-width: 91px;
+  }
+
+  .steps .steps-body {
+    flex: 1 1 0;
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "image + heading + link"
+  },
+  "contentPattern": "One row per slide, three cells: (1) media - background picture and/or a link to a video file (mp4/webm) which becomes a muted looping background video with the picture as poster; (2) content - rich text, typically a heading and a link (e.g. 'Saiba Mais'), rendered as a callout panel; (3) tab label - short plain text shown in the pill tab bar (falls back to the slide heading, then the slide number). Slides cross-fade and auto-rotate with a pause/play toggle; a single row renders as a static hero.",
+  "options": [
+    {
+      "class": "grey-light",
+      "label": "Grey Light"
+    },
+    {
+      "class": "light",
+      "label": "Light"
+    },
+    {
+      "class": "video",
+      "label": "Video"
+    }
+  ],
+  "memberVariantIds": [
+    "v_d59af3e7c445",
+    "v_7d942f53d3d2",
+    "v_a750957aa155",
+    "v_2d8a05efc717"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T22:32:07Z"
+  },
+  "reuseGuidance": "Use for top-of-page product heroes with 2-5 switchable slides. For a single static hero use the hero block. Keep tab labels to one or two words. 'grey-light' renders only the dot/pause control strip and suits a minimal slider where tabs are not wanted.",
+  "usageDescription": "Full-width auto-rotating hero at the top of product pages: background photo or video per slide, a pill tab bar to switch slides, a callout panel with heading and link, and a pause control. 'light' uses a light callout panel; 'video' slides use a background video; 'grey-light' is a compact dots + pause control strip."
+}

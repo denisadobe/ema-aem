@@ -1,0 +1,502 @@
+/* carousel-coverflow: centered coverflow (default) or staggered tile strip (image-dark).
+   Values measured on nubank.com.br/nu/nucel (coverflow) and nubank.com.br/empresas (strip). */
+.carousel-coverflow {
+  --carousel-coverflow-accent: var(--nu-purple);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.carousel-coverflow .carousel-coverflow-slides,
+.carousel-coverflow .carousel-coverflow-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* intro heading */
+.carousel-coverflow .carousel-coverflow-intro {
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.carousel-coverflow .carousel-coverflow-intro h2 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.carousel-coverflow .carousel-coverflow-intro p {
+  margin: 16px 0 0;
+}
+
+/* caption of the active slide, shown above the stage */
+.carousel-coverflow .carousel-coverflow-caption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 240px;
+  height: 63px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  font-family: var(--nu-body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--nu-black);
+}
+
+/* coverflow stage: every slide sits in the same spot and is shifted by its offset */
+.carousel-coverflow .carousel-coverflow-slides {
+  --slide-width: 240px;
+  --slide-height: 359px;
+  --slide-shift: 76px;
+  --side-scale: 0.842;
+
+  position: relative;
+  width: 100%;
+  height: var(--slide-height);
+  touch-action: pan-y;
+}
+
+.carousel-coverflow .carousel-coverflow-slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform:
+    translateX(calc(-50% + var(--offset, 0) * var(--slide-shift)))
+    scale(var(--side-scale));
+  z-index: calc(10 - var(--abs-offset, 0));
+  transition: transform 0.85s ease, opacity 0.85s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel-coverflow .carousel-coverflow-slide.is-active {
+  transform: translateX(-50%) scale(1);
+  cursor: default;
+}
+
+.carousel-coverflow .carousel-coverflow-slide.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-coverflow .carousel-coverflow-slide-image {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-coverflow .carousel-coverflow-slide-image p {
+  margin: 0;
+  height: 100%;
+}
+
+.carousel-coverflow .carousel-coverflow-slide-image picture,
+.carousel-coverflow .carousel-coverflow-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-coverflow .carousel-coverflow-slide-image picture::before {
+  content: none;
+}
+
+/* titled slides (plan cards) darken the photo under the white title */
+.carousel-coverflow .carousel-coverflow-slide:has(.carousel-coverflow-slide-content :is(h2, h3, h4)) .carousel-coverflow-slide-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 30%);
+}
+
+.carousel-coverflow .carousel-coverflow-slide-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.carousel-coverflow .carousel-coverflow-slide-content :is(h2, h3, h4) {
+  margin: 0;
+  color: var(--nu-white);
+  font-family: var(--nu-heading-font-family);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+/* the caption is surfaced above the stage, not inside the slide */
+.carousel-coverflow .carousel-coverflow-slide-content .carousel-coverflow-slide-caption {
+  display: none;
+}
+
+/* CTA pinned to the slide bottom */
+.carousel-coverflow .carousel-coverflow-slide-content p:has(> a:only-child) {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+/* controls: dots + pause/play */
+.carousel-coverflow .carousel-coverflow-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel-coverflow .carousel-coverflow-controls[hidden] {
+  display: none;
+}
+
+.carousel-coverflow .carousel-coverflow-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 36px;
+  padding: 0 16px;
+}
+
+.carousel-coverflow .carousel-coverflow-indicator {
+  display: flex;
+}
+
+main .carousel-coverflow .carousel-coverflow-indicator button {
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: rgb(143 143 154);
+  opacity: 0.2;
+  cursor: pointer;
+  transition: background-color 0.65s, opacity 0.65s;
+}
+
+main .carousel-coverflow .carousel-coverflow-indicator button[aria-current='true'] {
+  background-color: var(--carousel-coverflow-accent);
+  opacity: 1;
+}
+
+main .carousel-coverflow .carousel-coverflow-toggle {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background-color: rgb(202 202 202 / 30%);
+  color: var(--carousel-coverflow-accent);
+  cursor: pointer;
+}
+
+main .carousel-coverflow .carousel-coverflow-indicator button:focus-visible,
+main .carousel-coverflow .carousel-coverflow-toggle:focus-visible {
+  outline: 2px solid var(--carousel-coverflow-accent);
+  outline-offset: 2px;
+}
+
+/* progress ring: fills while the autoplay timer runs, full when paused */
+.carousel-coverflow .carousel-coverflow-toggle svg {
+  position: absolute;
+  inset: 0;
+  width: 36px;
+  height: 36px;
+  transform: rotate(-90deg);
+}
+
+.carousel-coverflow .carousel-coverflow-toggle circle {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2px;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.carousel-coverflow.is-paused .carousel-coverflow-toggle circle {
+  stroke-dashoffset: 0;
+}
+
+.carousel-coverflow .carousel-coverflow-toggle.is-running circle {
+  animation: carousel-coverflow-progress var(--autoplay-duration, 3850ms) linear forwards;
+}
+
+@keyframes carousel-coverflow-progress {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* pause glyph */
+.carousel-coverflow .carousel-coverflow-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 12px;
+  border-inline: 3px solid currentcolor;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+
+/* play glyph */
+.carousel-coverflow.is-paused .carousel-coverflow-toggle::before {
+  width: 0;
+  height: 0;
+  border-block: 6px solid transparent;
+  border-inline: 10px solid currentcolor;
+  border-inline-end: 0;
+  transform: translate(-35%, -50%);
+}
+
+/* ---------- image-dark: staggered tile strip, full bleed, scrolls left ---------- */
+.carousel-coverflow.image-dark {
+  --carousel-coverflow-accent: #714f8f;
+
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: 4px 0 8px;
+  box-sizing: border-box;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slides {
+  --strip-gap: 20px;
+  --strip-height: 400px;
+
+  display: flex;
+  align-self: stretch;
+  gap: var(--strip-gap);
+  width: auto;
+  height: var(--strip-height);
+  padding-left: 24px;
+  transition: transform 0.85s ease;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slides.no-transition {
+  transition: none;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slide {
+  --tile: 270px;
+  --tile-x: 42px;
+  --tile-y: 0;
+
+  position: relative;
+  top: auto;
+  left: auto;
+  flex: 0 0 auto;
+  width: var(--tile);
+  height: 100%;
+  overflow: visible;
+  display: block;
+  transform: none;
+  transition: none;
+  z-index: 1;
+  cursor: auto;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slide:is([data-stagger='1'], [data-stagger='3']) {
+  --tile-y: 130px;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slide-image,
+.carousel-coverflow.image-dark .carousel-coverflow-slide-content {
+  position: absolute;
+  inset: auto;
+  top: var(--tile-y);
+  left: var(--tile-x);
+  width: var(--tile);
+  height: var(--tile);
+  overflow: hidden;
+}
+
+/* bottom shade under the label */
+.carousel-coverflow.image-dark .carousel-coverflow-slide-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 50%) 100%);
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slide-content {
+  z-index: 1;
+  display: block;
+  padding: 0;
+}
+
+/* the whole tile is the link: label bottom-left, chevron bottom-right */
+.carousel-coverflow.image-dark .carousel-coverflow-slide-content p:has(> a:only-child) {
+  position: static;
+  display: block;
+  height: 100%;
+  margin: 0;
+}
+
+main .carousel-coverflow.image-dark .carousel-coverflow-slide-content a:any-link,
+main .carousel-coverflow.image-dark .carousel-coverflow-slide-content a.button:any-link {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0 24px 8px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--nu-white);
+  font-family: var(--nu-body-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: start;
+  text-decoration: none;
+  white-space: normal;
+}
+
+main .carousel-coverflow.image-dark .carousel-coverflow-slide-content a:hover {
+  color: var(--nu-white);
+  text-decoration: none;
+}
+
+main .carousel-coverflow.image-dark .carousel-coverflow-slide-content a:focus-visible {
+  outline: 2px solid var(--nu-white);
+  outline-offset: -4px;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slide-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-slide-label::after {
+  content: '';
+  flex: 0 0 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.5 4.5 13 10l-5.5 5.5'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+}
+
+.carousel-coverflow.image-dark .carousel-coverflow-controls {
+  margin-top: 140px;
+}
+
+@media (width >= 900px) {
+  .carousel-coverflow .carousel-coverflow-intro {
+    padding-bottom: 32px;
+  }
+
+  .carousel-coverflow .carousel-coverflow-intro h2 {
+    font-size: 48px;
+  }
+
+  .carousel-coverflow .carousel-coverflow-caption {
+    width: 310px;
+    height: 82px;
+    padding-bottom: 24px;
+    font-size: 22px;
+  }
+
+  .carousel-coverflow .carousel-coverflow-slides {
+    --slide-width: 310px;
+    --slide-height: 467px;
+    --slide-shift: 250px;
+    --side-scale: 0.832;
+  }
+
+  .carousel-coverflow .carousel-coverflow-slide-content {
+    padding: 0 24px;
+  }
+
+  .carousel-coverflow .carousel-coverflow-slide-content :is(h2, h3, h4) {
+    font-size: 36px;
+  }
+
+  .carousel-coverflow .carousel-coverflow-controls {
+    margin-top: 28px;
+  }
+
+  /* strip: big centred tiles alternate with small tiles pinned bottom / top */
+  .carousel-coverflow.image-dark .carousel-coverflow-slides {
+    --strip-gap: 28px;
+    --strip-height: 516px;
+  }
+
+  .carousel-coverflow.image-dark .carousel-coverflow-slide {
+    --tile: 300px;
+    --tile-x: 42px;
+    --tile-y: 108px;
+  }
+
+  .carousel-coverflow.image-dark .carousel-coverflow-slide:is([data-stagger='1'], [data-stagger='3']) {
+    --tile: 244px;
+    --tile-x: 0;
+    --tile-y: 272px;
+
+    z-index: 0;
+  }
+
+  .carousel-coverflow.image-dark .carousel-coverflow-slide[data-stagger='3'] {
+    --tile-y: 0;
+  }
+
+  main .carousel-coverflow.image-dark .carousel-coverflow-slide-content a:any-link,
+  main .carousel-coverflow.image-dark .carousel-coverflow-slide-content a.button:any-link {
+    font-size: 24px;
+  }
+
+  .carousel-coverflow.image-dark .carousel-coverflow-controls {
+    margin-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-coverflow .carousel-coverflow-slide,
+  .carousel-coverflow.image-dark .carousel-coverflow-slides {
+    transition: none;
+  }
+
+  .carousel-coverflow .carousel-coverflow-toggle.is-running circle {
+    animation: none;
+  }
+}

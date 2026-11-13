@@ -1,0 +1,48 @@
+{
+  "variantName": "accordion-faq",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + text + button + list"
+  },
+  "contentPattern": "Single-cell rows form the intro: text row (heading + paragraph), optional picture-only row (intro image), optional links-only row (CTA buttons). Each row with 2+ cells is one accordion item: cell 1 = question/summary, cell 2 = answer (rich text), optional cell 3 = item image (renders a card-like item with the image in the summary). Default layout: intro column left, item list right on desktop; 'stacked' puts a centered intro above the list and the CTA below it.",
+  "options": [
+    {
+      "class": "light",
+      "label": "Light"
+    },
+    {
+      "class": "purple",
+      "label": "Purple"
+    },
+    {
+      "class": "orange",
+      "label": "Orange"
+    },
+    {
+      "class": "stacked",
+      "label": "Stacked"
+    }
+  ],
+  "memberVariantIds": [
+    "v_7e5d03cf068a",
+    "v_07b74647580c",
+    "v_a61b823406b4",
+    "v_8a81795abac0",
+    "v_5d6d686040ba",
+    "v_7838c52b82f4"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/nu/cartao"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T23:25:00Z"
+  },
+  "reuseGuidance": "Use for any expandable Q&A list with an intro column. Use 'stacked' when the heading sits centered above boxed items with a CTA below. 'light', 'purple' and 'orange' are color-scheme hooks for the section background. For a plain accordion without intro, leave the intro rows empty.",
+  "usageDescription": "FAQ / explainer sections: a heading with short intro text (and optionally an image or CTA) next to a list of expandable questions with plus indicators; items may carry an image for feature-card style lists."
+}

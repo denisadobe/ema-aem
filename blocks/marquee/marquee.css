@@ -1,0 +1,148 @@
+/* Marquee - values measured on nubank.com.br/faz-valer and the home page (390px / 1440px) */
+.marquee-wrapper {
+  max-width: 100% !important;
+}
+
+.marquee {
+  --marquee-token-size: 100px;
+  --marquee-token-gap: 16px;
+  --marquee-font-size: 64px;
+
+  position: relative;
+  overflow: hidden;
+
+  /* full bleed: cancel the section's horizontal gutter */
+  margin: 0 calc(-1 * var(--nu-gutter));
+
+  /* source band: 80px top; tracks are followed by an 8px grid gap + 40px CTA row
+     (empty on faz-valer, the CTA on home); the section already gives 64px */
+  padding: 16px 0 64px;
+}
+
+.marquee .marquee-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.marquee .marquee-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.marquee .marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 84s linear infinite;
+}
+
+.marquee .marquee-track:nth-child(2),
+.marquee .marquee-track:nth-child(4) {
+  animation-duration: 240s;
+}
+
+.marquee .marquee-track:nth-child(3) {
+  animation-duration: 156s;
+}
+
+.marquee .marquee-track-reverse {
+  animation-direction: reverse;
+}
+
+.marquee .marquee-set {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--marquee-token-gap);
+  padding-right: var(--marquee-token-gap);
+}
+
+.marquee .marquee-token {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.marquee .marquee-token-text {
+  color: var(--nu-purple);
+  font-family: var(--nu-heading-font-family);
+  font-size: var(--marquee-font-size);
+  font-weight: 600;
+  line-height: var(--marquee-token-size);
+  letter-spacing: -3.4px;
+}
+
+.marquee .marquee-token-image,
+.marquee .marquee-token-image picture {
+  display: block;
+  width: var(--marquee-token-size);
+  height: var(--marquee-token-size);
+}
+
+.marquee .marquee-token-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marquee .marquee-caption {
+  max-width: var(--nu-content-max-width);
+  margin: 48px auto 0;
+  padding: 0 var(--nu-gutter);
+}
+
+.marquee .marquee-caption-text > :first-child {
+  margin-top: 0;
+}
+
+.marquee .marquee-caption-text > :last-child {
+  margin-bottom: 0;
+}
+
+/* light option: same look as default (the section style supplies the background) */
+.marquee.light {
+  color: inherit;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee .marquee-track {
+    animation: none;
+  }
+}
+
+@media (width >= 900px) {
+  .marquee {
+    --marquee-token-size: 160px;
+    --marquee-token-gap: 24px;
+    --marquee-font-size: 156px;
+
+    /* section padding (120px) matches the source band; 16px gap + 80px CTA row below */
+    padding: 0 0 96px;
+  }
+
+  .marquee .marquee-rows {
+    gap: 16px;
+  }
+
+  /* source shows 3 tracks on desktop, 4 on mobile */
+  .marquee .marquee-track:nth-child(4) {
+    display: none;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "variantName": "steps",
+  "baseBlock": "custom",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "text"
+  },
+  "contentPattern": "One row per step. A single-cell row holds the step text (rich text) and gets an auto-generated two-digit number (01, 02, ...). A two-cell row uses cell 1 as a custom number/label and cell 2 as the step text. A vertical track on the left fills with scroll progress (--steps-progress).",
+  "options": [
+    { "class": "tinted", "label": "Tinted" },
+    { "class": "dark", "label": "Dark" }
+  ],
+  "memberVariantIds": [
+    "v_8acb6494b28d",
+    "v_6943fc8ed2f6",
+    "v_c2bb9117da76",
+    "v_e0ab0ad8db29",
+    "v_ab8f06fec168"
+  ],
+  "usage": "Numbered how-to steps and numbered regulation/terms clauses inside a rounded panel, with a vertical progress line on the left.",
+  "reuseGuidance": "Use for any ordered sequence of text-only steps or clauses. 'tinted' (light lavender panel) and 'dark' (deep purple panel, light text) are color-scheme hooks; the default is a light panel."
+}

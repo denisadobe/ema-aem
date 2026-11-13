@@ -1,0 +1,24 @@
+{
+  "variantName": "cards-photo",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "photo-top",
+    "structure": "image + heading + text + link"
+  },
+  "contentPattern": "One row per card. Cell 1: photo. Cell 2: rich text - H3 heading, short description and a text link ('Mais informações') to a detail page. Photo renders on top; three per row on desktop with a staggered vertical offset per column; no card background.",
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": [
+      "/nu/cartao"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T00:00:00Z"
+  },
+  "reuseGuidance": "Use for sets of 2-3 photo cards (photo on top, heading, description, text link to a detail page) without a card panel. For filled feature panels with a small icon use cards-feature; for stacked link rows use cards-links.",
+  "usageDescription": "Row of three staggered photo cards ('Mais facilidades' on /nu/cartao), each linking to a /nu/cartao/* detail page."
+}

@@ -1,0 +1,25 @@
+{
+  "variantName": "cards-tiles",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "heading + text + button"
+  },
+  "contentPattern": "One row per tile. Cell 1: icon image. Cell 2: rich text - short title (optional extra text). Cell 3 (optional): link making the whole tile clickable. Icon renders at the top, title pinned to the bottom of a tall tile.",
+  "options": [
+    {
+      "class": "light",
+      "label": "Light"
+    }
+  ],
+  "memberVariantIds": [
+    "v_5a2502946165",
+    "v_dd4c5a0877a1"
+  ],
+  "usage": "Four-column grid of tall tiles with a small line icon at the top and a short title at the bottom (plan features, security solutions).",
+  "reuseGuidance": "Use for compact icon + title feature grids without descriptions. Option light is a color scheme. For cards with heading + description use cards-feature."
+}

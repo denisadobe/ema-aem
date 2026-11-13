@@ -1,0 +1,33 @@
+{
+  "variantName": "marquee",
+  "baseBlock": "custom",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "image + heading"
+  },
+  "contentPattern": "Each row with 2 cells is one marquee item: cell 1 = image (logo or photo, optional), cell 2 = word/short phrase (optional). The items are repeated into three horizontally scrolling tracks (alternating direction, staggered start). A single-cell row is the caption (rich text, e.g. date - time - venue) shown below the tracks.",
+  "options": [
+    {
+      "class": "light",
+      "label": "Light"
+    }
+  ],
+  "memberVariantIds": [
+    "v_a0ebc4470fcf",
+    "v_a0ebc4470fcf-1",
+    "v_dca21b4f941b"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T22:32:07Z"
+  },
+  "reuseGuidance": "Use for animated, ticker-style word walls. Author each word and each image as its own item (or one item with both). 'light' is the light-background color-scheme hook (photo tokens); default uses the event color background. Animation stops under prefers-reduced-motion.",
+  "usageDescription": "Event / campaign hero with oversized scrolling words interleaved with logo squares or photos, plus a date/venue caption line."
+}

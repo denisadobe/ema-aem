@@ -1,0 +1,109 @@
+{
+  "definitions": [
+    {
+      "title": "Carousel Blog",
+      "id": "carousel-blog",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Carousel Blog",
+              "model": "carousel-blog",
+              "filter": "carousel-blog"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Carousel Blog Item",
+      "id": "carousel-blog-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Carousel Blog Item",
+              "model": "carousel-blog-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "carousel-blog",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Options",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Purple",
+              "value": "purple"
+            },
+            {
+              "name": "Alt",
+              "value": "alt"
+            },
+            {
+              "name": "Image Above Text",
+              "value": "image-above-text"
+            },
+            {
+              "name": "Image Above Text 2",
+              "value": "image-above-text-2"
+            },
+            {
+              "name": "Purple 2",
+              "value": "purple-2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carousel-blog-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "text",
+          "label": "Text",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "carousel-blog",
+      "components": [
+        "carousel-blog-item"
+      ]
+    }
+  ]
+}

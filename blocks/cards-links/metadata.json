@@ -1,0 +1,43 @@
+{
+  "variantName": "cards-links",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + link + text + button"
+  },
+  "contentPattern": "One row per link card. Cell 1: rich text - heading (title) and optional description paragraph. Cell 2: link (the card target; its text is used as fallback label). If only one cell is authored, the first link inside it becomes the card link. The whole card is clickable with a round arrow CTA.",
+  "options": [
+    {
+      "class": "light",
+      "label": "Light"
+    },
+    {
+      "class": "alt",
+      "label": "Alt"
+    },
+    {
+      "class": "purple",
+      "label": "Purple"
+    }
+  ],
+  "memberVariantIds": [
+    "v_b3e6ec6ed350",
+    "v_862b5a12ab89",
+    "v_08f7e50c25b2",
+    "v_85e1eb2b2984",
+    "v_ba7ef5eddd80"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T22:32:07Z"
+  },
+  "reuseGuidance": "Use for lists of navigational link cards with optional description. Options: light = horizontal grid of tall cards; alt and purple are color schemes. For cards with icons use cards-feature.",
+  "usageDescription": "Stacked full-width link cards (policies, terms, related products) placed beside a section heading; the light option shows them side by side as tall cards with the arrow at the bottom."
+}

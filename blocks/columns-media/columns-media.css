@@ -1,0 +1,222 @@
+/*
+ * columns-media: media | text promo split, measured on nubank.com.br
+ * (/nu/cartao NuBraille, /croma, home CTA strip). Section colour, padding
+ * and text colour come from the section style.
+ */
+
+/* rows: mobile stacks text above media */
+.columns-media > .columns-media-row {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-media > .columns-media-row + .columns-media-row {
+  margin-top: 24px;
+}
+
+.columns-media > .columns-media-row > div {
+  min-width: 0;
+}
+
+.columns-media > .columns-media-row > .columns-media-img-col {
+  order: 1;
+}
+
+.columns-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* media cropped like the source: square beside leading text, 16/10 when media leads */
+.columns-media > .columns-media-row:not(.columns-media-media-first) > .columns-media-img-col img {
+  aspect-ratio: 1 / 1;
+}
+
+.columns-media > .columns-media-row.columns-media-media-first > .columns-media-img-col img {
+  aspect-ratio: 16 / 10;
+}
+
+.columns-media > .columns-media-row:not(.columns-media-text-only, .columns-media-media-first) > .columns-media-img-col {
+  margin-top: 16px;
+}
+
+/* text cell beside media: heading, copy and CTA spaced by gap */
+.columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-text-col > * {
+  margin: 0;
+}
+
+.columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-text-col > :is(h1, h2, h3) {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -1.2px;
+}
+
+.columns-media > .columns-media-row.columns-media-media-first > .columns-media-text-col > :is(h1, h2, h3) {
+  font-size: var(--nu-heading-xxl);
+  line-height: 0.94;
+}
+
+/* on light bands the promo heading is ink, not the section accent */
+main .section:not(.purple, .dark-purple) .columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-text-col > :is(h1, h2, h3) {
+  color: var(--nu-ink);
+}
+
+.columns-media .columns-media-text-col p {
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.25px;
+}
+
+.columns-media .columns-media-text-col > :first-child {
+  margin-top: 0;
+}
+
+.columns-media .columns-media-text-col > :last-child {
+  margin-bottom: 0;
+}
+
+main .columns-media .button-container a.button:any-link {
+  padding: 0 32px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* CTA strip: heading | lone button, centred stack on mobile */
+.columns-media > .columns-media-row.columns-media-cta {
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.columns-media > .columns-media-row.columns-media-cta > .button-container {
+  display: block;
+}
+
+.columns-media .columns-media-cta :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font-family: var(--nu-heading-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.7px;
+}
+
+/* alt-2: cells are stacked cards (media on top, text below) */
+.columns-media.alt-2 .columns-media-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-media.alt-2 .columns-media-card > :has(picture),
+.columns-media.alt-2 .columns-media-card > picture {
+  order: -1;
+}
+
+@media (width >= 900px) {
+  .columns-media .columns-media-text-col p {
+    font-size: 21px;
+  }
+
+  /* media rows: 12-column grid, media spans 6 columns, text 5 */
+  .columns-media > .columns-media-row:not(.columns-media-text-only) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 16px;
+    align-items: center;
+  }
+
+  .columns-media > .columns-media-row.columns-media-media-first {
+    gap: 16px 24px;
+  }
+
+  .columns-media > .columns-media-row:not(.columns-media-text-only) > div {
+    grid-row: 1;
+    order: unset;
+  }
+
+  .columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-text-col {
+    grid-column: 1 / 6;
+    gap: 16px;
+  }
+
+  .columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-img-col {
+    grid-column: 7 / 13;
+    margin-top: 0;
+  }
+
+  /* leading text: heading spans 5 columns, copy 4 */
+  .columns-media > .columns-media-row:not(.columns-media-text-only) > .columns-media-text-col > :is(h1, h2, h3) {
+    font-size: 60px;
+  }
+
+  .columns-media > .columns-media-row:not(.columns-media-text-only, .columns-media-media-first) > .columns-media-text-col > p {
+    max-width: calc((100% - 64px) * 0.8 + 48px);
+  }
+
+  .columns-media > .columns-media-row.columns-media-media-first > .columns-media-img-col {
+    grid-column: 1 / 7;
+  }
+
+  .columns-media > .columns-media-row.columns-media-media-first > .columns-media-text-col {
+    grid-column: 8 / 13;
+    gap: 32px;
+  }
+
+  .columns-media > .columns-media-row.columns-media-media-first > .columns-media-text-col > :is(h1, h2, h3) {
+    font-size: var(--nu-heading-xxl);
+  }
+
+  main .columns-media .button-container a.button:any-link {
+    font-size: 20px;
+  }
+
+  /* text-only rows (heading | items): equal columns, top aligned */
+  .columns-media > .columns-media-row.columns-media-text-only {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .columns-media > .columns-media-row.columns-media-text-only > div {
+    flex: 1;
+  }
+
+  .columns-media > .columns-media-row.columns-media-cta {
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .columns-media > .columns-media-row.columns-media-cta > div {
+    flex: 0 1 auto;
+  }
+
+  .columns-media .columns-media-cta :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 34px;
+  }
+
+  /* alt: text column anchored to the bottom, media pushed right */
+  .columns-media.alt > .columns-media-row {
+    align-items: end;
+  }
+
+  .columns-media.alt > .columns-media-row > .columns-media-img-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* alt-2: cards align to top */
+  .columns-media.alt-2 > .columns-media-row {
+    align-items: flex-start;
+  }
+}

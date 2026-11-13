@@ -1,0 +1,53 @@
+{
+  "variantName": "table",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "table",
+    "description": "Plain data table inside long legal text (contracts, promotion rules): header-like first row, thin row rules, rich-text cells."
+  },
+  "contentPattern": "One block row per table row, one cell per column (1-5 columns). Cells hold rich text (paragraphs, bold, line breaks, links). The first row renders as the header row (<th scope=col>) unless the no-header option is set. A row may have fewer cells than the widest row (source colspan): its last cell spans the remaining columns.",
+  "options": [
+    { "class": "striped", "label": "Striped" },
+    { "class": "bordered", "label": "Bordered" },
+    { "class": "no-header", "label": "No Header" }
+  ],
+  "memberVariantIds": [],
+  "usage": "Legal data tables in contracts and promotion regulations (e.g. /contratos/contrato-nucel-plano-35-gb: 10 tables up to 5 columns; /contratos/regulamento-da-promocao-usou-ganhou-no-cartao-nu-empresas: 4-column tables).",
+  "reuseGuidance": "Use for any genuine tabular data (rows x columns of text). Source tables without <th> whose first row reads as a header map to the default (header) form; use no-header when the first row is data. Not for layout grids (use columns) or key/value notes (use notice).",
+  "xwalkModel": {
+    "block": "table",
+    "blockModel": "table",
+    "blockFilter": "table",
+    "rowComponents": {
+      "1": { "component": "table-row", "fields": ["column1text"] },
+      "2": { "component": "table-col-2", "fields": ["column1text", "column2text"] },
+      "3": { "component": "table-col-3", "fields": ["column1text", "column2text", "column3text"] },
+      "4": { "component": "table-col-4", "fields": ["column1text", "column2text", "column3text", "column4text"] },
+      "5": { "component": "table-col-5", "fields": ["column1text", "column2text", "column3text", "column4text", "column5text"] }
+    },
+    "fieldComponent": "richtext",
+    "columnFilters": {
+      "1": "table",
+      "2": "table-2-columns",
+      "3": "table-3-columns",
+      "4": "table-4-columns",
+      "5": "table-5-columns"
+    },
+    "importShape": {
+      "headerRow": "First block row = block name only: 'Table', or 'Table (striped)' / 'Table (bordered, no-header)' for options.",
+      "rows": "Every following block row = one source <tr>. Cell 0 is the row component id chosen by that row's own cell count N: N=1 'table-row', N=2..5 'table-col-N'. Cells 1..N are the source <td>/<th> contents in order (colspan dropped; the block JS restores the span).",
+      "cells": "Each content cell starts with a field hint comment '<!-- field:columnKtext -->' (K = 1-based column index) followed by the cell's rich text (keep <p>, <strong>, <em>, <br>, <a>; unwrap <div>/<span>). Empty source cells still get their cell with only the field hint so column positions stay aligned.",
+      "rules": [
+        "Never omit the row component id cell: md2jcr treats a single-cell first body row as block (parent) properties, and the id is what selects the N-column row model.",
+        "Do not emit more than 5 content cells per row; the model supports up to 5 columns.",
+        "Do not wrap the first row in <th>; the block decides header rendering from the no-header option."
+      ],
+      "example": "<table><tr><td>Table</td></tr><tr><td>table-col-3</td><td><!-- field:column1text --><p><strong>Plano</strong></p></td><td><!-- field:column2text --><p><strong>Franquia</strong></p></td><td><!-- field:column3text --><p><strong>Valor</strong></p></td></tr><tr><td>table-col-3</td><td><!-- field:column1text --><p>NuCel</p></td><td><!-- field:column2text --><p>35 GB</p></td><td><!-- field:column3text --><p>R$ 45,00</p></td></tr><tr><td>table-row</td><td><!-- field:column1text --><p>Valores com impostos inclusos.</p></td></tr></table>"
+    }
+  }
+}

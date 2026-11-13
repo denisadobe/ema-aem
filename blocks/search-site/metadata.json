@@ -1,0 +1,26 @@
+{
+  "variantName": "search-site",
+  "baseBlock": "search",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "field + button"
+  },
+  "contentPattern": "Optional rows, each with one cell: a row with a link (or a path/URL as text) sets the query index source (default /query-index.json); a row with plain text sets the input placeholder (e.g. 'Busca'). Renders a pill-shaped field: round search badge, floating-label input, round clear (x) button; results list (path + title rows) below.",
+  "options": [],
+  "memberVariantIds": [
+    "v_9275f01ad13a"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/buscar"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-09T01:03:24Z"
+  },
+  "reuseGuidance": "Use wherever a standalone search field is needed on a page. Author the placeholder text in the block; the index defaults to the site query index.",
+  "usageDescription": "Site / help-center search field (pill input with search icon and clear button) with client-side results from the query index."
+}

@@ -1,0 +1,51 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + text"
+  },
+  "contentPattern": "One row per card. Cell 1: icon image (optional). Cell 2: rich text - heading + short description. Cell 3 (optional): link; when present the whole card becomes clickable and a round arrow CTA is shown. Icon renders at the bottom of the card.",
+  "options": [
+    {
+      "class": "light",
+      "label": "Light"
+    },
+    {
+      "class": "alt",
+      "label": "Alt"
+    },
+    {
+      "class": "orange",
+      "label": "Orange"
+    },
+    {
+      "class": "link-list",
+      "label": "Link List"
+    }
+  ],
+  "memberVariantIds": [
+    "v_28b04e96f91d",
+    "v_fbfeaf4dda04",
+    "v_313f9e4b3059",
+    "v_e0d347afb0fa",
+    "v_b2c78b84fa64",
+    "v_384b8935b8f4",
+    "v_e5340a50e3c0",
+    "v_5e872ff85296",
+    "v_7c3b0c7d6626"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/nu/cartao"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T23:25:00Z"
+  },
+  "reuseGuidance": "Use for benefit/feature grids. Options: light and orange are color schemes; link-list renders compact title-plus-arrow link tiles; alt renders the cards as a dropdown selector when every card has a link (catalog placement). For stacked link rows use cards-links; for tall icon tiles use cards-tiles.",
+  "usageDescription": "Grid of 3-4 benefit/feature cards (heading, short description, round icon at the bottom) on product pages; with links, a row of product cards with an arrow CTA."
+}

@@ -1,0 +1,62 @@
+{
+  "definitions": [
+    {
+      "title": "Columns Media",
+      "id": "columns-media",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/columns/v1/columns",
+            "template": {
+              "name": "Columns Media",
+              "model": "columns-media",
+              "filter": "columns-media",
+              "columns": "2",
+              "rows": "1"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "columns-media",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Options",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "Alt", "value": "alt" },
+            { "name": "Alt 2", "value": "alt-2" }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "columns",
+          "value": "",
+          "label": "Columns"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "rows",
+          "value": "",
+          "label": "Rows"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "columns-media",
+      "components": [
+        "column"
+      ]
+    }
+  ]
+}

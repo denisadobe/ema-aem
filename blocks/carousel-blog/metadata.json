@@ -1,0 +1,73 @@
+{
+  "variantName": "carousel-blog",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + link + image + text"
+  },
+  "contentPattern": {
+    "summary": "One item row per slide; each row has two cells: image | rich text. Leading rows with no image become the intro panel (heading + CTA button) shown beside the slides. When no row has an image the block renders as a text-only strip (control strip or tab bar).",
+    "rows": [
+      {
+        "row": "intro (optional, leading, image cell empty)",
+        "cells": [
+          "(empty)",
+          "rich text: heading, optional paragraph, CTA link"
+        ]
+      },
+      {
+        "row": "slide (repeating)",
+        "cells": [
+          "image",
+          "rich text: eyebrow/category paragraph, heading, \"Read more\" link"
+        ]
+      }
+    ]
+  },
+  "options": [
+    {
+      "class": "purple",
+      "label": "Purple"
+    },
+    {
+      "class": "alt",
+      "label": "Alt"
+    },
+    {
+      "class": "image-above-text",
+      "label": "Image Above Text"
+    },
+    {
+      "class": "image-above-text-2",
+      "label": "Image Above Text 2"
+    },
+    {
+      "class": "purple-2",
+      "label": "Purple 2"
+    }
+  ],
+  "memberVariantIds": [
+    "v_63f66f33789b",
+    "v_6dfd92aaa606",
+    "v_7d72e895c053",
+    "v_9312225f6781",
+    "v_2474fc02881e",
+    "v_bbbe88874c2c",
+    "v_1107f508dab0",
+    "v_b169d8360eb6"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index",
+      "/nu/cartao"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-11-08T23:25:00Z"
+  },
+  "reuseGuidance": "Use for horizontally scrolling article/teaser card lists with an optional intro. Options: alt (brand color background hook), image-above-text / image-above-text-2 (stacked card, image on top; -2 is the tinted-background version), purple (text-only control strip), purple-2 (pill tab bar of links). For full-width hero slides use carousel-hero.",
+  "usageDescription": "Blog/article teaser carousel: an intro panel with heading and \"go to blog\" button beside horizontally scrolling article cards (text overlaid on image by default, image above text for image-above-text options). Catalog also places the arrow/dot control strip (purple) and the brand tab bar (purple-2) here."
+}

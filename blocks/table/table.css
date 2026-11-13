@@ -1,0 +1,82 @@
+/* Table block: Nubank legal data tables (values measured on nubank.com.br/contratos at 390px and 1440px) */
+.table.block {
+  width: 100%;
+}
+
+/* wide tables (4-5 columns) scroll inside the block instead of widening the page */
+.table .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* source tables shrink to their content, capped by the content column */
+.table table {
+  /* undo the global `table { display: block; width: 100% }` so the table box shrinks to its content */
+  display: table;
+  width: auto;
+  overflow: visible;
+  margin: 0 0 22px;
+  border: 1px solid #efefef;
+  border-collapse: collapse;
+  font-size: var(--nu-body-l);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.table table th,
+.table table td {
+  padding: 12px;
+  border: 1px solid #efefef;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table table th p,
+.table table td p,
+.table table th li,
+.table table td li {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+/* source cell paragraphs keep their 1em bottom margin, last one included */
+.table table th p,
+.table table td p {
+  margin: 0 0 1em;
+}
+
+.table table th ul,
+.table table td ul,
+.table table th ol,
+.table table td ol {
+  margin: 0 0 1em;
+}
+
+.table table strong,
+.table table b {
+  font-weight: 700;
+}
+
+/* Word footnote refs (source: <a href="#_ftn1"><sup>1</sup></a>; the import drops the <sup>) */
+.table table a[href^='#_ftn'] {
+  font-size: smaller;
+  vertical-align: super;
+  line-height: 0;
+  text-decoration: underline;
+}
+
+/* striped option */
+.table.striped table tbody tr:nth-child(odd) {
+  background-color: var(--nu-light-grey);
+}
+
+/* bordered option: heavier rules on the header row */
+.table.bordered table thead th {
+  border-bottom-width: 2px;
+}

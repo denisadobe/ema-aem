@@ -9,33 +9,55 @@
     "id": "section",
     "components": [
       "accordion",
+      "accordion-faq",
       "action-button",
       "button",
-      "button",
       "cards",
+      "cards-contact",
+      "cards-feature",
+      "cards-links",
+      "cards-photo",
+      "cards-tiles",
+      "cards-video",
       "carousel",
+      "carousel-blog",
+      "carousel-coverflow",
+      "carousel-expanding",
+      "carousel-hero",
+      "carousel-steps",
       "columns",
+      "columns-media",
       "contentfragment",
-      "download-list",
       "dm-asset",
       "dm-template",
+      "download-list",
       "embed-adaptive-form",
+      "embed-video",
       "find-a-doctor",
       "forex",
       "form",
       "fragment",
       "hero",
+      "hero-banner",
+      "hero-signup",
+      "hero-split",
       "image",
+      "marquee",
+      "notice",
       "promotion",
       "quote",
       "search",
+      "search-site",
       "separator",
+      "steps",
+      "table",
       "tabs",
       "teaser",
       "text",
       "title",
       "title-block",
-      "video"
+      "video",
+      "video-promo"
     ]
   },
   {
@@ -62,5 +84,65 @@
       "title-block",
       "video"
     ]
+  },
+  {
+    "...": "../blocks/accordion-faq/_accordion-faq.json#/filters"
+  },
+  {
+    "...": "../blocks/accordion/_accordion.json#/filters"
+  },
+  {
+    "...": "../blocks/cards-contact/_cards-contact.json#/filters"
+  },
+  {
+    "...": "../blocks/cards-feature/_cards-feature.json#/filters"
+  },
+  {
+    "...": "../blocks/cards-links/_cards-links.json#/filters"
+  },
+  {
+    "...": "../blocks/cards-photo/_cards-photo.json#/filters"
+  },
+  {
+    "...": "../blocks/cards-tiles/_cards-tiles.json#/filters"
+  },
+  {
+    "...": "../blocks/cards-video/_cards-video.json#/filters"
+  },
+  {
+    "...": "../blocks/carousel-blog/_carousel-blog.json#/filters"
+  },
+  {
+    "...": "../blocks/carousel-coverflow/_carousel-coverflow.json#/filters"
+  },
+  {
+    "...": "../blocks/carousel-expanding/_carousel-expanding.json#/filters"
+  },
+  {
+    "...": "../blocks/carousel-hero/_carousel-hero.json#/filters"
+  },
+  {
+    "...": "../blocks/carousel-steps/_carousel-steps.json#/filters"
+  },
+  {
+    "...": "../blocks/carousel/_carousel.json#/filters"
+  },
+  {
+    "...": "../blocks/columns-media/_columns-media.json#/filters"
+  },
+  {
+    "...": "../blocks/form/_form.json#/filters"
+  },
+  {
+    "...": "../blocks/marquee/_marquee.json#/filters"
+  },
+  {
+    "...": "../blocks/steps/_steps.json#/filters"
+  },
+  {
+    "...": "../blocks/table/_table.json#/filters"
+  },
+  {
+    "...": "../blocks/tabs/_tabs.json#/filters"
   }
 ]

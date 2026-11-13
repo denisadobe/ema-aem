@@ -1,0 +1,321 @@
+/*
+ * cards-links: link cards (title + optional text + round arrow CTA, whole card clickable).
+ * Values measured on nubank.com.br (chatgpt-go, contratos, home security, nubank-cancelando-contas,
+ * taxas-e-precos, empresas/conta) at 390px and 1440px.
+ *
+ * default: stacked full-width cards; arrow under the text on mobile, at the right on desktop.
+ * light:   side-by-side tiles, arrow at the bottom (also used in purple / dark-purple sections).
+ * alt:     white cards with a muted purple arrow.
+ * purple:  lilac cards.
+ */
+
+.cards-links {
+  --cards-links-card-bg: var(--nu-beige);
+  --cards-links-card-color: var(--nu-black);
+  --cards-links-btn-bg: var(--nu-purple);
+  --cards-links-btn-hover-bg: var(--nu-purple-dark);
+  --cards-links-btn-color: var(--nu-white);
+  --cards-links-btn-size: 36px;
+  --cards-links-icon-size: 24px;
+  --cards-links-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 7l5 5-5 5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.cards-links > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cards-links .cards-links-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0;
+  padding: 24px 16px 16px 24px;
+  border-radius: 16px;
+  background-color: var(--cards-links-card-bg);
+  color: var(--cards-links-card-color);
+}
+
+.cards-links .cards-links-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cards-links .cards-links-card-body > * {
+  margin: 0;
+}
+
+.cards-links .cards-links-card-body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--nu-heading-font-family);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 26.32px;
+  letter-spacing: -0.84px;
+  color: inherit;
+}
+
+.cards-links .cards-links-card-body p {
+  font-family: var(--nu-body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+  letter-spacing: -0.36px;
+  color: inherit;
+}
+
+.cards-links .cards-links-card-cta {
+  display: flex;
+  flex: 0 0 auto;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--cards-links-btn-size) + 8px);
+  height: calc(var(--cards-links-btn-size) + 8px);
+}
+
+.cards-links .cards-links-card-cta p {
+  margin: 0;
+}
+
+.cards-links .cards-links-card .cards-links-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cards-links-btn-size);
+  height: var(--cards-links-btn-size);
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background-color: var(--cards-links-btn-bg);
+  color: var(--cards-links-btn-color);
+  font-size: 0;
+  line-height: 0;
+  text-decoration: none;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+}
+
+.cards-links .cards-links-card .cards-links-card-link::before {
+  content: '';
+  flex: 0 0 auto;
+  width: var(--cards-links-icon-size);
+  height: var(--cards-links-icon-size);
+  background-color: currentcolor;
+  mask: var(--cards-links-icon) center / contain no-repeat;
+}
+
+/* whole card is clickable: stretch the link's hit area over the card */
+.cards-links .cards-links-card .cards-links-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  float: none;
+  border-radius: inherit;
+}
+
+.cards-links .cards-links-card:hover .cards-links-card-link,
+.cards-links .cards-links-card .cards-links-card-link:focus-visible {
+  background-color: var(--cards-links-btn-hover-bg);
+  color: var(--cards-links-btn-color);
+  text-decoration: none;
+}
+
+/* card colour follows the section band (source: white cards on beige/grey, beige on white) */
+main .section.beige .cards-links,
+main .section.light-grey .cards-links,
+main .section.light-yellow .cards-links,
+.cards-links.alt {
+  --cards-links-card-bg: var(--nu-white);
+}
+
+.cards-links.alt {
+  --cards-links-btn-bg: #714f8f;
+}
+
+main .section.lilac .cards-links,
+.cards-links.purple {
+  --cards-links-card-bg: #d6b9fe;
+}
+
+@media (width >= 900px) {
+  .cards-links > ul {
+    gap: 16px;
+  }
+
+  .cards-links .cards-links-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    padding: 32px 16px 32px 32px;
+  }
+
+  .cards-links .cards-links-card-body {
+    padding-right: 20px;
+  }
+
+  .cards-links .cards-links-card-body :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 34px;
+    line-height: 31.96px;
+    letter-spacing: -0.68px;
+  }
+
+  .cards-links .cards-links-card-body p {
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.4px;
+  }
+
+  .cards-links .cards-links-card-cta {
+    align-self: center;
+  }
+}
+
+/* light: side-by-side tiles (dark-purple band: "Conheça outras maneiras de ser Nubank") */
+.cards-links.light,
+main .section.dark-purple .cards-links,
+main .section.purple .cards-links {
+  --cards-links-card-bg: #3f026a;
+  --cards-links-card-color: var(--nu-white);
+  --cards-links-focus-color: var(--nu-white);
+  --cards-links-btn-bg: var(--nu-purple);
+  --cards-links-btn-hover-bg: var(--nu-purple-dark);
+  --cards-links-btn-color: var(--nu-white);
+}
+
+.cards-links.light .cards-links-card,
+main .section.dark-purple .cards-links .cards-links-card,
+main .section.purple .cards-links .cards-links-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 16px 24px 24px;
+}
+
+.cards-links.light .cards-links-card-cta,
+main .section.dark-purple .cards-links .cards-links-card-cta,
+main .section.purple .cards-links .cards-links-card-cta {
+  align-self: center;
+  width: auto;
+  height: auto;
+}
+
+.cards-links.light .cards-links-card-body :is(h1, h2, h3, h4, h5, h6),
+main .section.dark-purple .cards-links .cards-links-card-body :is(h1, h2, h3, h4, h5, h6) {
+  font-size: 20px;
+  line-height: 18.8px;
+  letter-spacing: -0.4px;
+}
+
+.cards-links.light .cards-links-card-body p,
+main .section.dark-purple .cards-links .cards-links-card-body p {
+  font-size: 18px;
+  line-height: 23.4px;
+  letter-spacing: normal;
+}
+
+/* purple band (home security tiles): darker purple tiles, cream titles, lilac arrow */
+main .section.purple .cards-links {
+  --cards-links-card-bg: var(--nu-purple-dark);
+  --cards-links-card-color: var(--nu-cream);
+  --cards-links-btn-bg: var(--nu-purple);
+  --cards-links-btn-hover-bg: var(--nu-ink);
+  --cards-links-btn-color: var(--nu-lilac);
+  --cards-links-focus-color: var(--nu-cream);
+  --cards-links-btn-size: 44px;
+  --cards-links-icon-size: 18px;
+  --cards-links-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M3 9h12M10 4l5 5-5 5' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+main .section.purple .cards-links .cards-links-card {
+  padding: 24px 16px;
+  border-radius: 12px;
+}
+
+main .section.purple .cards-links .cards-links-card-body :is(h1, h2, h3, h4, h5, h6) {
+  font-size: 24px;
+  line-height: 26.4px;
+  letter-spacing: -0.7px;
+}
+
+@media (width >= 900px) {
+  .cards-links.light > ul,
+  main .section.dark-purple .cards-links > ul,
+  main .section.purple .cards-links > ul {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .cards-links.light .cards-links-card,
+  main .section.dark-purple .cards-links .cards-links-card,
+  main .section.purple .cards-links .cards-links-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    min-height: 350px;
+    padding: 40px;
+  }
+
+  .cards-links.light .cards-links-card-cta,
+  main .section.dark-purple .cards-links .cards-links-card-cta,
+  main .section.purple .cards-links .cards-links-card-cta {
+    align-self: flex-start;
+  }
+
+  .cards-links.light,
+  main .section.dark-purple .cards-links {
+    --cards-links-btn-size: 48px;
+  }
+
+  .cards-links.light .cards-links-card-body :is(h1, h2, h3, h4, h5, h6),
+  main .section.dark-purple .cards-links .cards-links-card-body :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 24px;
+    line-height: 22.56px;
+    letter-spacing: -0.48px;
+  }
+
+  .cards-links.light .cards-links-card-body p,
+  main .section.dark-purple .cards-links .cards-links-card-body p {
+    font-size: 22px;
+    line-height: 28.6px;
+  }
+
+  main .section.purple .cards-links {
+    --cards-links-btn-size: 56px;
+  }
+
+  main .section.purple .cards-links > ul {
+    gap: 16px;
+  }
+
+  main .section.purple .cards-links .cards-links-card {
+    min-height: 246px;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  main .section.purple .cards-links .cards-links-card-body :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 34px;
+    line-height: 37.4px;
+  }
+}
+
+/* keyboard focus outlines the whole card */
+main .cards-links .cards-links-card:has(.cards-links-card-link:focus-visible) {
+  outline: 2px solid var(--cards-links-focus-color, var(--nu-purple));
+  outline-offset: 2px;
+}

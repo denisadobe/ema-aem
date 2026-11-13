@@ -1,0 +1,19 @@
+{
+  "variantName": "embed-video",
+  "baseBlock": "embed",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "video"
+  },
+  "contentPattern": "Optional row with a placeholder picture (click-to-play), then a row with the video URL as a link or plain text (YouTube, youtu.be, Vimeo, or any embeddable URL). Renders a responsive 16:9 rounded iframe, lazy-loaded when it scrolls into view.",
+  "options": [],
+  "memberVariantIds": [
+    "v_59d258bf0c1a"
+  ],
+  "usage": "Inline YouTube video player (how-to / product explainer videos) in a rounded 16:9 frame within article content.",
+  "reuseGuidance": "Use for third-party hosted videos (YouTube/Vimeo). For self-hosted MP4 or promo videos with a poster frame and branded border use video-promo."
+}

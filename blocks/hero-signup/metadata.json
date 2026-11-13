@@ -1,0 +1,99 @@
+{
+  "variantName": "hero-signup",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "image + heading + text + field + button"
+  },
+  "contentPattern": {
+    "rows": [
+      {
+        "name": "media",
+        "fields": [
+          "media_image",
+          "media_imageAlt",
+          "media_video"
+        ],
+        "content": "One cell: optional picture (side image, or full-bleed background for background-image options) and/or a link to an .mp4/.webm video (video option)."
+      },
+      {
+        "name": "content",
+        "fields": [
+          "content_text"
+        ],
+        "content": "One cell, rich text: optional eyebrow paragraph (e.g. Nubank), heading (h1), description paragraph."
+      },
+      {
+        "name": "form",
+        "fields": [
+          "form_label",
+          "form_placeholder",
+          "form_link",
+          "form_linkText"
+        ],
+        "content": "One cell: label paragraph (signup card title), placeholder paragraph (e.g. Digite seu CPF), then a paragraph with the button link (text = button label, href = destination)."
+      }
+    ],
+    "notes": "Three single-cell rows (media, content, form); empty groups render as empty rows. With another row count the JS classifies rows by content: picture or video link without heading -> media, heading -> content, the rest -> form (first plain paragraph = label, second = placeholder, first link = button). Output: .hero-signup-media + .hero-signup-content (.hero-signup-text, form.hero-signup-form)."
+  },
+  "options": [
+    {
+      "class": "video",
+      "label": "Video"
+    },
+    {
+      "class": "premium",
+      "label": "Premium"
+    },
+    {
+      "class": "background-image",
+      "label": "Background Image"
+    },
+    {
+      "class": "background-image-2",
+      "label": "Background Image 2"
+    },
+    {
+      "class": "background-image-light-image-dark",
+      "label": "Background Image Light Image Dark"
+    },
+    {
+      "class": "background-image-light",
+      "label": "Background Image Light"
+    },
+    {
+      "class": "background-image-yellow",
+      "label": "Background Image Yellow"
+    },
+    {
+      "class": "purple",
+      "label": "Purple"
+    }
+  ],
+  "memberVariantIds": [
+    "v_f4c7e25f9083",
+    "v_486e8e2c2dc9",
+    "v_a6369f5b78fe",
+    "v_28048b723f48",
+    "v_19f8a2abda4f",
+    "v_47e671d56194",
+    "v_dcf0e2a4616b",
+    "v_9a909dda97e4",
+    "v_a6fee967f2e3",
+    "v_fcc5fa65546f"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index",
+      "/nu/cartao"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-11-08T23:25:00Z"
+  },
+  "reuseGuidance": "Use for any hero that includes the 'Digite seu CPF/CNPJ + Continuar' signup form. Pick a background-image option when the photo spans the whole hero; heroes without the form belong to hero-split or hero.",
+  "usageDescription": "Page-top hero with eyebrow, headline, description and an account-signup card (title, CPF/CNPJ field, Continue button). Default/video/premium: image left, text + form right. Background-image options: full-bleed photo with headline left and the form card right. Purple: dark split with text + form left and image right (or below)."
+}

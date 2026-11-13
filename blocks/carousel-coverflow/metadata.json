@@ -1,0 +1,48 @@
+{
+  "variantName": "carousel-coverflow",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "heading + image + link + text + button"
+  },
+  "contentPattern": {
+    "summary": "One item row per slide; each row has two cells: image | rich text. Slides are stacked in a coverflow stage: the active slide is centered and full size, neighbours are scaled down behind it. Paragraphs without links in the text cell are shown as a caption above the stage for the active slide. Optional leading rows without an image become an intro (heading).",
+    "rows": [
+      {
+        "row": "intro (optional, leading, image cell empty)",
+        "cells": [
+          "(empty)",
+          "rich text: heading"
+        ]
+      },
+      {
+        "row": "slide (repeating)",
+        "cells": [
+          "image",
+          "rich text: heading/title, optional caption paragraph, CTA link (button)"
+        ]
+      }
+    ]
+  },
+  "options": [
+    {
+      "class": "image-dark",
+      "label": "Image Dark"
+    },
+    {
+      "class": "image-dark-2",
+      "label": "Image Dark 2"
+    }
+  ],
+  "memberVariantIds": [
+    "v_dac7244426a3",
+    "v_f099785ec03c",
+    "v_b772d77f622c"
+  ],
+  "usage": "Centered coverflow carousel with autoplay, dot indicators and a pause/play toggle: speaker portraits with name button, video teasers (Assista), product tiles (Saiba mais), plan cards with a price title.",
+  "reuseGuidance": "Use when one tall card is centered and side cards peek behind it, with auto-advance. Options: image-dark (equal-size product tiles staggered vertically with title + chevron link at the bottom), image-dark-2 (centered title over darkened image, plan picker). For left-aligned scrolling cards use carousel-blog; for widening panels use carousel-expanding."
+}

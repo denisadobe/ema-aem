@@ -1,0 +1,54 @@
+{
+  "variantName": "columns-media",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "image + heading + text + link"
+  },
+  "contentPattern": "Columns block (xwalk columns resource). Each row is a row of columns; typically one row with two cells: a media-only cell (single image) and a text cell (optional eyebrow paragraph, heading, body paragraphs, optional CTA link/button). Media may be in the first or second cell; on mobile media stacks above text. Rows with no media cell (e.g. a grid of text items) are laid out as equal columns. Option alt-2: each cell is a stacked card containing image, heading, text and link in one cell.",
+  "options": [
+    {
+      "class": "alt",
+      "label": "Alt"
+    },
+    {
+      "class": "alt-2",
+      "label": "Alt 2"
+    }
+  ],
+  "memberVariantIds": [
+    "v_21ff5b6bda73",
+    "v_104eb09953d8",
+    "v_7f1af957bd9f",
+    "v_38659a518769",
+    "v_6989fa5181f1",
+    "v_fe6bfff5fde2",
+    "v_40092e5fb4c7",
+    "v_fade71f6035d",
+    "v_693486a17f46",
+    "v_168a76f8376e",
+    "v_82b0667256e2",
+    "v_903220b7f4fb",
+    "v_7a1b1512d7ea",
+    "v_c7d701f02ed2",
+    "v_60f3fe34e355",
+    "v_9418d6acdc89",
+    "v_9e29beba4c40",
+    "v_e17588c23db9",
+    "v_fa07f664b619"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index",
+      "/nu/cartao"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-11-08T23:25:00Z"
+  },
+  "reuseGuidance": "Use for any image-beside-text section, regardless of which side the image is on (author cell order decides). Section background color comes from section metadata, not the block. Use Alt for article/news style intros with eyebrow and no body CTA; Alt 2 for 2-up feature cards with image on top. Use hero-banner instead when text overlays a full-bleed background image.",
+  "usageDescription": "Two-column media and text promo sections across product, help and contract pages: an image (photo, product shot or QR code) beside a heading, body copy and an optional CTA button or link, on a full-width colored section band. Alt anchors the text (eyebrow + large heading) beside a media panel on light pages; Alt 2 shows a row of stacked image cards with heading, text and arrow link."
+}

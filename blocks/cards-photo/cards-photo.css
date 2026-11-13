@@ -1,0 +1,167 @@
+/* cards-photo: values measured on https://nubank.com.br/nu/cartao ("Mais facilidades") */
+
+/* mobile / tablet (source below 1200px): single stacked column */
+.cards-photo {
+  /* source puts 48px between the section heading and the cards; h2 already adds 0.35em */
+  margin-top: 35px;
+}
+
+.cards-photo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cards-photo .cards-photo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.cards-photo .cards-photo-card-image {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards-photo .cards-photo-card-image p {
+  margin: 0;
+}
+
+.cards-photo .cards-photo-card-image picture {
+  display: block;
+}
+
+.cards-photo .cards-photo-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 11;
+  max-height: 720px;
+  object-fit: cover;
+}
+
+.cards-photo .cards-photo-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.cards-photo .cards-photo-card-body > * {
+  margin: 0;
+}
+
+.cards-photo .cards-photo-card-body h3 {
+  font-family: var(--nu-heading-font-family);
+  font-size: 26.9px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.0206em;
+  color: var(--nu-ink);
+}
+
+.cards-photo .cards-photo-card-body p {
+  font-family: var(--nu-body-font-family);
+  font-size: 19.8px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.0119em;
+  color: var(--nu-black);
+}
+
+/* source: 8px between the description and the link on small screens */
+.cards-photo .cards-photo-card-body p.cards-photo-card-cta {
+  margin-top: -8px;
+}
+
+.cards-photo .cards-photo-card-body .cards-photo-card-link,
+.cards-photo .cards-photo-card-body .cards-photo-card-link:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--nu-body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: var(--nu-purple);
+  text-decoration: none;
+}
+
+.cards-photo .cards-photo-card-body .cards-photo-card-link:hover,
+.cards-photo .cards-photo-card-body .cards-photo-card-link:focus-visible {
+  color: var(--nu-purple-dark);
+}
+
+/* chevron-right-sm icon (source icon font glyph, 1em box) */
+.cards-photo .cards-photo-card-body .cards-photo-card-link::after {
+  content: '';
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 6l4 4-4 4' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* desktop (source switches to three columns at 1200px) */
+@media (width >= 1200px) {
+  .cards-photo {
+    /* source: 80px between heading and cards, minus the h2 0.35em bottom margin */
+    margin-top: 58px;
+  }
+
+  .cards-photo > ul {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+  }
+
+  .cards-photo .cards-photo-card {
+    flex: 1 1 0;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  /* staggered photos: each column's photo is 100px taller than the previous */
+  .cards-photo .cards-photo-card-image img {
+    aspect-ratio: auto;
+    height: 300px;
+    max-height: none;
+  }
+
+  .cards-photo .cards-photo-card:nth-child(3n + 2) .cards-photo-card-image img {
+    height: 400px;
+  }
+
+  .cards-photo .cards-photo-card:nth-child(3n + 3) .cards-photo-card-image img {
+    height: 500px;
+  }
+
+  .cards-photo .cards-photo-card-body {
+    width: 100%;
+  }
+
+  .cards-photo .cards-photo-card-body h3 {
+    font-size: clamp(32px, 30.86px + 0.17vw, 34px);
+  }
+
+  .cards-photo .cards-photo-card-body p {
+    font-size: clamp(20px, 19.25px + 0.0912vw, 21px);
+  }
+
+  .cards-photo .cards-photo-card-body p.cards-photo-card-cta {
+    margin-top: 0;
+  }
+
+  .cards-photo .cards-photo-card-body .cards-photo-card-link,
+  .cards-photo .cards-photo-card-body .cards-photo-card-link:any-link {
+    font-size: 20px;
+  }
+}

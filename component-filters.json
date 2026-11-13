@@ -9,50 +9,59 @@
     "id": "section",
     "components": [
       "accordion",
+      "accordion-faq",
       "action-button",
       "button",
       "cards",
+      "cards-contact",
+      "cards-feature",
+      "cards-links",
+      "cards-photo",
+      "cards-tiles",
+      "cards-video",
       "carousel",
+      "carousel-blog",
+      "carousel-coverflow",
+      "carousel-expanding",
+      "carousel-hero",
+      "carousel-steps",
       "columns",
+      "columns-media",
       "contentfragment",
-      "download-list",
+      "dm-asset",
       "dm-template",
-      "dynamic-media-image",
-      "dynamic-media-video",
+      "download-list",
+      "embed-adaptive-form",
+      "embed-video",
+      "find-a-doctor",
+      "forex",
+      "form",
       "fragment",
       "hero",
+      "hero-banner",
+      "hero-signup",
+      "hero-split",
       "image",
+      "marquee",
+      "notice",
       "promotion",
       "quote",
+      "search",
+      "search-site",
+      "separator",
+      "steps",
+      "table",
+      "tabs",
       "teaser",
       "text",
       "title",
       "title-block",
       "video",
-      "search",
-      "separator",
-      "tabs",
-      "form",
-      "forex",
-      "embed-adaptive-form",
-      "find-a-doctor",
-      "fragment-list"
-    ]
-  },
-  {
-    "id": "accordion",
-    "components": [
-      "accordion-item"
+      "video-promo"
     ]
   },
   {
     "id": "cards",
-    "components": [
-      "card"
-    ]
-  },
-  {
-    "id": "carousel",
     "components": [
       "card"
     ]
@@ -67,18 +76,103 @@
     "id": "column",
     "components": [
       "button",
+      "dm-asset",
+      "dm-template",
       "image",
       "text",
       "title",
       "title-block",
-      "video",
-      "dynamic-media-video"
+      "video"
     ]
   },
   {
-    "id": "tabs",
+    "id": "accordion-faq",
     "components": [
-      "tabs-item"
+      "accordion-faq-item"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
+  {
+    "id": "cards-contact",
+    "components": [
+      "cards-contact-item"
+    ]
+  },
+  {
+    "id": "cards-feature",
+    "components": [
+      "cards-feature-item"
+    ]
+  },
+  {
+    "id": "cards-links",
+    "components": [
+      "cards-links-item"
+    ]
+  },
+  {
+    "id": "cards-photo",
+    "components": [
+      "cards-photo-item"
+    ]
+  },
+  {
+    "id": "cards-tiles",
+    "components": [
+      "cards-tiles-item"
+    ]
+  },
+  {
+    "id": "cards-video",
+    "components": [
+      "cards-video-item"
+    ]
+  },
+  {
+    "id": "carousel-blog",
+    "components": [
+      "carousel-blog-item"
+    ]
+  },
+  {
+    "id": "carousel-coverflow",
+    "components": [
+      "carousel-coverflow-item"
+    ]
+  },
+  {
+    "id": "carousel-expanding",
+    "components": [
+      "carousel-expanding-item"
+    ]
+  },
+  {
+    "id": "carousel-hero",
+    "components": [
+      "carousel-hero-item"
+    ]
+  },
+  {
+    "id": "carousel-steps",
+    "components": [
+      "carousel-steps-item"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns-media",
+    "components": [
+      "column"
     ]
   },
   {
@@ -109,6 +203,54 @@
       "tnc",
       "wizard",
       "range"
+    ]
+  },
+  {
+    "id": "marquee",
+    "components": [
+      "marquee-item"
+    ]
+  },
+  {
+    "id": "steps",
+    "components": [
+      "steps-item"
+    ]
+  },
+  {
+    "id": "table",
+    "components": [
+      "table-row"
+    ]
+  },
+  {
+    "id": "table-2-columns",
+    "components": [
+      "table-col-2"
+    ]
+  },
+  {
+    "id": "table-3-columns",
+    "components": [
+      "table-col-3"
+    ]
+  },
+  {
+    "id": "table-4-columns",
+    "components": [
+      "table-col-4"
+    ]
+  },
+  {
+    "id": "table-5-columns",
+    "components": [
+      "table-col-5"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
     ]
   }
 ]

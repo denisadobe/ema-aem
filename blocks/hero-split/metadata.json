@@ -1,0 +1,30 @@
+{
+  "variantName": "hero-split",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + text + link"
+  },
+  "contentPattern": {
+    "rows": [
+      { "name": "image", "content": "Picture shown in the left column. Optional." },
+      { "name": "text", "content": "Rich text: optional eyebrow paragraph (e.g. 'Nubank'), heading, description/date paragraph, optional CTA link in its own paragraph." }
+    ],
+    "notes": "Two single-cell rows. The row holding a picture becomes .hero-split-media; all other non-empty rows are merged into .hero-split-content. Paragraphs before the heading get .hero-split-eyebrow; a paragraph holding only a link gets .hero-split-cta."
+  },
+  "options": [
+    { "class": "alt", "label": "Alt" },
+    { "class": "purple", "label": "Purple" }
+  ],
+  "memberVariantIds": [
+    "v_a3a8165beea7",
+    "v_3bb1fdd42f91",
+    "v_c0b6d446a7ad"
+  ],
+  "usage": "Split hero or intro banner without a form: image on the left, eyebrow + heading + description (or validity date) on the right. Default is the large page hero (legal/regulation pages); alt and purple are compact banners with a smaller image, purple adding a dark background and an outlined CTA link.",
+  "reuseGuidance": "Use for image + text heroes/banners that have no signup field. If the hero contains the CPF/CNPJ signup card use hero-signup instead."
+}

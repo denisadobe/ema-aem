@@ -1,0 +1,19 @@
+{
+  "variantName": "cards-video",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + link + image"
+  },
+  "contentPattern": "One row per video card. Cell 1: poster image (thumbnail). Cell 2: video URL link (YouTube, Vimeo or an mp4/webm file). Cell 3: rich text - video title/caption. Clicking the poster swaps it for the player.",
+  "options": [],
+  "memberVariantIds": [
+    "v_e1cdf2870d9a"
+  ],
+  "usage": "Grid of 2-3 video cards with a thumbnail, play button and caption (how-to and safety tip videos).",
+  "reuseGuidance": "Use for galleries of video thumbnails with captions that play inline. For a single large video use the video or embed block."
+}

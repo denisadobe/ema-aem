@@ -1,0 +1,21 @@
+{
+  "variantName": "cards-contact",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + text + link"
+  },
+  "contentPattern": "One row per contact card. Cell 1 (optional): icon image. Cell 2: rich text - a short message, or a title followed by phone-number links each with a description line, or a list of links. A paragraph in cell 2 that starts with an inline icon image is rendered as an icon + content row (one per contact channel).",
+  "options": [],
+  "memberVariantIds": [
+    "v_a2e31a5b229b",
+    "v_6bb1126cc66c",
+    "v_fbcaba10de2e"
+  ],
+  "usage": "Stacked contact-channel cards (chat, phone numbers, ombudsman / sign-language / form links) beside a section heading on contact, contract and ombudsman pages.",
+  "reuseGuidance": "Use for vertical stacks of contact or support channels with an icon and short text or links. For grids of feature cards use cards-feature; for link-only cards use cards-links."
+}

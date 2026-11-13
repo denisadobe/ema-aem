@@ -1,0 +1,52 @@
+{
+  "variantName": "carousel-steps",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "text + video + button"
+  },
+  "contentPattern": "Two leading single-cell rows hold block-level content: row 1 intro (rich text, usually the section heading; may be empty), row 2 cta (rich text, e.g. 'Baixe o app' text plus App Store / Google Play badge links, or a button; may be empty). Every following row is one slide with two cells: (1) media - an image and/or a link to a video file (mp4/webm), which becomes a muted looping inline video; (2) content - rich text: the step description, or for the vertical options a heading, text and an optional button. Only the active slide's cells are shown; slides auto-advance with dots and a pause/play toggle. The vertical options (vertical, vertical-2, vertical-purple-light) move the controls into a right-hand column with up/down arrows.",
+  "options": [
+    {
+      "class": "light-grey-purple",
+      "label": "Light Grey Purple"
+    },
+    {
+      "class": "vertical-2",
+      "label": "Vertical 2"
+    },
+    {
+      "class": "orange-grey-purple",
+      "label": "Orange Grey Purple"
+    },
+    {
+      "class": "vertical",
+      "label": "Vertical"
+    },
+    {
+      "class": "vertical-purple-light",
+      "label": "Vertical Purple Light"
+    }
+  ],
+  "memberVariantIds": [
+    "v_0c8c1d6ec2b6",
+    "v_7123eaf5f03d",
+    "v_87ba318f9297",
+    "v_c34a158293e5",
+    "v_00419e3f855b",
+    "v_7dccfc7cbe50"
+  ],
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-08T22:32:07Z"
+  },
+  "reuseGuidance": "Use for sequential app steps or short feature showcases (3-6 slides) with one media item per slide. Default and the colour options (light-grey-purple, orange-grey-purple) keep a shared heading in the intro row; vertical options usually leave intro empty and put the heading in each slide. For plain image galleries use another carousel.",
+  "usageDescription": "Step-by-step 'how it works in the app' slideshow: a fixed heading on the left, a step description that changes per slide, an app screen photo or video on the right, dot pagination with pause, and an app-download CTA. The vertical options are a product showcase that steps vertically with up/down arrows, each slide carrying its own heading, text and button."
+}

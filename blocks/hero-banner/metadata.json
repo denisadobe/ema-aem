@@ -1,0 +1,27 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "image + heading + text"
+  },
+  "contentPattern": "Two rows: row 1 = background image (optional; omit for solid/gradient color heroes), row 2 = rich text with optional eyebrow paragraph before the heading, a heading, body paragraph(s) and an optional CTA link paragraph. The image is rendered as a full-cover background with the text overlaid bottom-left. With description-box, body paragraphs after the heading move into a separate box.",
+  "options": [
+    { "class": "full-bleed", "label": "Full Bleed" },
+    { "class": "description-box", "label": "Description Box" },
+    { "class": "light", "label": "Light" },
+    { "class": "purple", "label": "Purple" },
+    { "class": "shadow-light", "label": "Shadow Light" },
+    { "class": "alt", "label": "Alt" }
+  ],
+  "memberVariantIds": [
+    "v_74a9211e1d80", "v_be83c3ca7545", "v_c93fdbcd3539", "v_5a2514d2c3d7",
+    "v_7ee0b7b42bd2", "v_c7fff10ea464", "v_e53c53f7caa8"
+  ],
+  "usage": "Page-top banner with a full-width background photo and overlaid white heading and copy. Default puts the text in a translucent panel on the left; Full Bleed overlays text bottom-left directly on the photo; Description Box splits the copy into a separate box at the bottom-right; Light and Purple are solid or gradient color heroes (event and campaign pages) with eyebrow, heading and copy; Shadow Light overlays an eyebrow and large heading on a darkened photo; Alt is a rounded card hero with heading and a CTA button.",
+  "reuseGuidance": "Use for the first, full-width banner of a page when text overlays an image or a solid color band. Pick the option by text treatment (panel, plain overlay, split description box, color background, card). Use columns-media instead when image and text sit side by side."
+}
