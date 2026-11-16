@@ -1,7 +1,8 @@
 {
   "mappings": [
     "/content/ema-aem/language-masters/en:/",
-    "/content/ema-aem/language-masters/en/:/en/",
+    "/content/ema-aem/language-masters/en/nav:/en/nav",
+    "/content/ema-aem/language-masters/en/footer:/en/footer",
     "/content/ema-aem/language-masters/fr/:/fr/",
     "/content/ema-aem/language-masters/fr:/fr",
     "/content/ema-aem/language-masters/es/:/es/",
@@ -13,7 +14,8 @@
     "/content/ema-aem/configuration:/.helix/config.json",
     "/content/ema-aem/metadata:/metadata.json",
     "/content/ema-aem/redirects:/redirects.json",
-    "/content/ema-aem/placeholders:/placeholders.json"
+    "/content/ema-aem/placeholders:/placeholders.json",
+    "/content/ema-aem/language-masters/en/:/"
   ],
   "includes": [
     "/content/ema-aem/",
